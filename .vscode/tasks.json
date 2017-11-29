@@ -1,0 +1,21 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "taskName": "Launch Server",
+      "type": "shell",
+      "command": "root='bettergov' parent='graphics' && open https://$parent.$root.$(whoami):8443/${PWD##*$root/}/ && cd ${PWD%%/$root/*}/$root && python serveHttps.py",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "taskName": "Compass Sass Watch",
+      "type": "shell",
+      "command": "compass watch",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

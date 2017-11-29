@@ -1,0 +1,21 @@
+/**
+ * @file layout.css
+ * Style for base template.
+ *
+ * @author Patrick Judge <pjudge@bettergov.org>
+ */
+
+body {
+  font: 12px/1.2 proxima-nova, helvetica, arial, sans-serif;
+  color: #000;
+  margin: 0;
+  padding: 10px;
+  background: transparent;
+}
+div[class^="bga-g-"]:not(:last-child),
+div[class^="bga-g-"] > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+.headline { font-size: 18px; font-weight: 700; margin-bottom: 5px !important; }
+.leadin { font-size: 15px; }
+.notes, .source, .credit { font-size: 12px; }
