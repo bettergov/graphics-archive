@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" />
+  <meta name="author" content="Better Government Association">
+  <title>Percent share of degree completions</title>
+
+  <!-- Load fonts -->
+  <script src="https://use.typekit.net/mqd7hhp.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <link rel="stylesheet" type="text/css" href="base.css">
+  <link rel="stylesheet" type="text/css" href="chart.css">
+  <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="headers.json"></script>
+</head>
+<body>
+
+  <div class="bga-g-before">
+    <div class="headline">Share of total degrees awarded, by degree type</div>
+    <div class="deck">Compared to the <span id="highlight-gray">rest of the state</span>, <span id="highlight-red">City Colleges of Chicago</span> awards a greater share of general studies associate degrees.</div>
+  </div>
+
+  <div class="bga-g-main">
+    <div class="chart"></div>
+  </div>
+
+  <div class="bga-g-after">
+   <div class="notes"><b>Note:</b> The Illinois Community College Board, which collects statistics statewide, refers to City Colleges' Associate in General Studies and similar degrees as Liberal Studies &amp; General Ed.</div>
+    <div class="source"><b>Data:</b> <a href="https://www.iccb.org/iccb/">Illinois Community College Board</a></div>
+    <!--<div class="credit"><b>Credit:</b> Patrick Judge | BGA</div>-->
+  </div>
+
+  <script src="chart.js"></script>
+  <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+	<script type="text/javascript">
+		var pymChild = new pym.Child();
+	</script>
+
+</body>
+
+</html>
+
+

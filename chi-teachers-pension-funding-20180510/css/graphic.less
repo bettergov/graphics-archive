@@ -1,0 +1,64 @@
+@import 'base';
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+.chart {
+  .line {
+    fill: none;
+    stroke: #014561;
+    stroke-width: 2px;
+  }
+
+  .area {
+    fill: #e1e8ee;
+    stroke: none;
+  }
+}
+
+.x.grid .tick {
+  stroke: white;
+  stroke-width: 2px;
+  stroke-opacity: 0.8;
+}
+
+.y.grid {
+  display: none;
+}
+
+.x.axis {
+  .domain,
+  line {
+    display: none;
+  }
+}
+
+.y.axis .tick:last-of-type text {
+  transform: translate(45px, 0);
+}
+
+.y.axis text {
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}

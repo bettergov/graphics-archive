@@ -1,0 +1,22 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="slopegraph" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.footnote %}{{ COPY.labels.footnote|smarty|markdown }}{% endif %}
+        {% if COPY.labels.source %}{{ COPY.labels.source|smarty|markdown }}{% endif %}
+        {% if COPY.labels.credit %}{{ COPY.labels.credit|smarty|markdown }}{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+        var LABELS = {{ COPY.labels.json() }};
+    </script>
+{% endblock content %}

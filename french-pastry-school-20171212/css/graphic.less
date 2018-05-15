@@ -1,0 +1,55 @@
+@import "base";
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 12px;
+
+    path { display: none; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: #ddd;
+    shape-rendering: auto;
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.value text {
+    font-size: 11px;
+    fill: #333;
+}
+
+.label text {
+    font-size: 11px;
+    fill: #333;
+}
+
+table {
+    text-align: left;
+    border-spacing: 0 10px;
+    border-collapse: separate;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table .description {
+    width: 60%;
+}
+
+th { border-bottom: 1px solid #ccc; }
+
+tbody tr:nth-child(even) { background: #f7f7f7; }
+
+td { padding: 5px; }
+
+.hidden { display: none; }
+
+.footer { margin-bottom: 10px; }
+
+#see-full-data { color: #555; font-weight: 700; border-bottom: 2px solid #ccc; }

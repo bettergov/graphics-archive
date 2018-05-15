@@ -1,0 +1,54 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}
+
+.line.two {
+  stroke: @red3;
+  stroke-dasharray: 3px;
+}
+
+.axis.y .tick:last-of-type text {
+  transform: translate(8px, 0);
+}
+
+.labels {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-size: 3vw;
+  font-weight: bold;
+  fill: #666;
+}
+
+@media screen and (max-width: 400px) {
+  .labels {
+      font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 516px) {
+  .labels {
+    font-size: 15.5px;
+  }
+}

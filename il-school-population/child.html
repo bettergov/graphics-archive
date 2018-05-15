@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CartoDB.js | BGA</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <style>
+      html, body, #map {
+        height: 300px;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+
+
+    <script src="https://use.fontawesome.com/72bf747438.js"></script>
+    <link rel="stylesheet" href="css/cartodb.css" />
+    <style>
+    .CDB-infowindow {
+        background: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        box-shadow: rgba(0,0,0,.2) 0 0 4px 2px;
+        border: 1px solid #999;
+    }
+
+    .CDB-infowindow-list {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+    }
+
+    .CDB-infowindow-subtitle {
+        text-transform: uppercase;
+        margin: 0;
+        color: #777;
+    }
+
+    .CDB-infowindow-title {
+        margin: 0;
+    }
+
+    .CDB-infowindow-listItem {
+        margin: 10px 0;
+    }
+
+    div.cartodb-layer-selector-box {
+        position: absolute;
+        top: 40px;
+        right: 0;
+    }
+
+    .cartodb-infowindow {
+        position: absolute !important;
+        left: calc(100% - 142px - 20px) !important;
+        top: 80px !important;
+        width: 142px;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+
+    div.cartodb-searchbox input.submit:before {
+        content: "\f002";
+        font-family: "FontAwesome";
+    }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <!-- include cartodb.js library -->
+    <script src="js/cartodb.js"></script>
+
+    <script>
+      function main() {
+        cartodb.createVis('map', 'https://pjudge95.cartodb.com/api/v2/viz/ba84c800-5736-4210-80cf-573fce572de3/viz.json', {
+            shareable: false,
+            search: true,
+            tiles_loader: true,
+            center_lat: 40,
+            center_lon: -88,
+            zoom: 6,
+            layer_selector: true,
+            scrollwheel: false
+        })
+        .done(function(vis, layers) {
+          // you can get the native map to work with it
+          var map = vis.getNativeMap();
+          console.log(document.getElementsByClassName('layers')[0]);
+          document.getElementsByClassName('layers')[0].innerHTML = "Filter by count<div class='count'>4</div>"
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+
+      }
+      window.onload = main;
+    </script>
+  </body>
+</html>

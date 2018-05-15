@@ -1,0 +1,37 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <!-- <img src="fallback.png" alt="[Chart]" class="fallback" /> -->
+        <section>
+            <p><strong>Initial valuation:</strong> $12.3 million</p>
+            <p><strong>After appeal:</strong> $8.1 million</p>
+            <p><strong>Value property sold for:</strong> $16 million</p>
+        </section>
+        <section>
+            <p>
+                <strong>Est. property tax from initial valuation</strong>
+                <div class="bar" style="width: 78.6%;">$1.1 million</div>
+            </p>
+            <p>
+                <strong>Est. property tax after appeal</strong>
+                <div class="bar" style="width: 51.8%;">$725,000</div>
+            </p>
+            <p>
+                <strong>Est. property tax from value sold for</strong>
+                <div class="bar" style="width: 100%;">$1.4 million</div>
+            </p>
+        </section>
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.footnote %}{{ COPY.labels.footnote|markdown|smarty }}{% endif %}
+        {% if COPY.labels.source %}{{ COPY.labels.source|markdown|smarty }}{% endif %}
+        {% if COPY.labels.credit %}{{ COPY.labels.credit|markdown|smarty }}{% endif %}
+    </div>
+
+{% endblock content %}

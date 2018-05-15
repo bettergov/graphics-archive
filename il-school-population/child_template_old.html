@@ -1,0 +1,43 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div id="map"></div>
+        <!-- <img src="fallback.png" alt="[Chart]" class="fallback" /> -->
+        <!-- include cartodb.js library -->
+        <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+
+        <script>
+        function main() {
+            cartodb.createVis('map', 'https://pjudge95.cartodb.com/api/v2/viz/ba84c800-5736-4210-80cf-573fce572de3/viz.json', {
+                shareable: false,
+                search: true,
+                tiles_loader: true,
+                center_lat: 39.6,
+                center_lon: -90.2,
+                zoom: 6,
+                layer_selector: true
+            })
+            .done(function(vis, layers) {
+            // you can get the native map to work with it
+            var map = vis.getNativeMap();
+            })
+            .error(function(err) {
+            console.log(err);
+            });
+        }
+        window.onload = main;
+        </script>
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.footnote %}<p><b>Notes:</b> {{ COPY.labels.footnote|smarty }}</p>{% endif %}
+        {% if COPY.labels.source %}<p><b>Data:</b> {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p><b>Credit:</b> {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

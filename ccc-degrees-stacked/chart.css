@@ -1,0 +1,146 @@
+.chart .description {
+  display: inline-block;
+  background: rgba(255, 192, 189, .2);
+  margin: 5px 10px 15px;
+  font-size: 15px;
+  line-height: 1.2;
+  vertical-align: top;
+  padding: 15px;
+}
+
+.chart .description p { margin: 0 0 15px; }
+
+.chart .description p:last-of-type { margin-bottom: 0; }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.degree path { 
+    fill:#bbb;
+    fill-opacity: .5;
+    stroke: white;
+    stroke-width: 1.5;
+    stroke-opacity: .8;
+}
+
+#ags path { 
+    fill: #EB332C;
+    fill-opacity: 1;
+}
+
+#ags .label {
+  font-weight: bolder;
+  /*fill: #EB332C;*/
+}
+
+.highlight { 
+  background: #EB332C; 
+  color: white;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.y .domain { display: none; }
+
+.axis.y .tick line {
+  stroke: lightgray;
+  stroke-dasharray: 5, 5;
+}
+
+.axis.y .tick:first-of-type line {
+  display: none;
+}
+
+.divider .tick line {
+  stroke: white;
+  stroke-width: 0;
+}
+
+text {
+  font-family: proxima-nova, helvetica, arial, sans-serif !important;
+  font-size: 10px;
+}
+
+.headline { font-weight: 400; }
+
+.bga-g-before { margin-bottom: 10px !important; }
+
+svg:not(:first-of-type) .reinventionLabel {
+  display: none;
+}
+
+.degree text { display: none !important; }
+
+.campus { 
+  width: 160px !important;
+  margin-bottom: 15px;
+}
+
+.campus .axis text { display: none; }
+
+.campus:first-of-type .axis text {
+  display: block !important;
+}
+
+.campus:nth-of-type(2n+1) .axis text
+{
+  display: block;
+}
+
+@media (min-width: 450px) {
+  .degree text { display: block !important; }
+  
+  .chart { 
+    max-width: 450px;
+    font-size: 0;
+  }
+
+  .campus { width: 225px !important; }
+}
+
+@media (min-width: 675px) {
+  .chart { 
+    max-width: 675px;
+  }
+  
+  .chart .description {
+    width: 175px;
+    height: 220px;
+    margin: 5px 10px 15px;
+  }
+
+  svg:nth-of-type(2n+1) .axis text
+  {
+    display: none !important;
+  }
+
+  svg:nth-of-type(3n) .axis text
+  {
+    display: block !important;
+  }
+}
+
+@media (min-width: 900px){
+  .chart { 
+    max-width: 900px;
+  }
+
+  svg:nth-of-type(3n) .axis text
+  {
+    display: none !important;
+  }
+
+  svg:nth-of-type(4) .axis text
+  {
+    display: block !important;
+  }
+}

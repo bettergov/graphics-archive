@@ -1,0 +1,24 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <!-- <img src="fallback.png" alt="[Chart]" class="fallback" /> -->
+        <h4>Flooding</h4>
+        <p><img src="https://media.bettergov.org/power-struggle/icon-flood.png">Flooding is a big threat to nuclear plants as it can knock out power, which is needed to keep the plant running and maintain water flow to keep the nuclear reactor core cool. Overheating of the reactor can lead to a core meltdown and the release of radiation.</p>
+        <h4>Power</h4>
+        <p><img src="https://media.bettergov.org/power-struggle/icon-power.png">Backup power is critical for a nuclear plant. Government engineers discovered a common problem at nuclear plants in 2012 that they say puts reliability of emergency power at risk. In 2016, seven engineers went public saying the problem needed to be fixed immediately. An industry group set its own timetable saying the issue will be fixed by the end of 2018.</p>
+        <h4>Mechanical</h4>
+        <p><img src="https://media.bettergov.org/power-struggle/icon-valve.png">Government experts questioned whether valves used to relieve water pressure at a pair of Illinois plants would work properly in an emergency. Despite two years of study by government engineers, Exelon fended off orders to further analyze the valves.</p>
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.footnote %}<p><b>Notes:</b> {{ COPY.labels.footnote|smarty }}</p>{% endif %}
+        {% if COPY.labels.source %}<p><b>Data:</b> {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p><b>Credit:</b> {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

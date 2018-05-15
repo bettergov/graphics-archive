@@ -1,0 +1,63 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_system }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_debt }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_contrib }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_noncontrib }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_benefit }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="system-{{ row.system|classify }}">
+                <td data-title="{{ COPY.labels.hdr_system }}">{{ row.system }}</td>
+                <td data-title="{{ COPY.labels.hdr_debt }}" class="amt">{{ row.debt }}</td>
+                <td data-title="{{ COPY.labels.hdr_contrib }}" class="amt">{{ row.contrib | comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_noncontrib }}" class="amt">{{ row.noncontrib | comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_benefit }}" class="amt">{{ row.benefit | comma }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.footnote %}{{ COPY.labels.footnote|markdown|smarty }}{% endif %}
+        {% if COPY.labels.source %}{{ COPY.labels.source|markdown|smarty }}{% endif %}
+        {% if COPY.labels.credit %}{{ COPY.labels.credit|markdown|smarty }}{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

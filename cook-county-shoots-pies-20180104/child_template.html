@@ -1,0 +1,59 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <!-- <img src="fallback.png" alt="[Chart]" class="fallback" /> -->
+        <div class="chart-container">
+            <p>Nearly <strong>two-thirds</strong> of people shot were <strong>black</strong>.</p>
+            <canvas class="pie-chart" id="race" width="60" height="60" data-percent="67">
+            This text is displayed if your browser does not support HTML5 Canvas.
+            </canvas>
+        </div>
+
+        <div class="chart-container">
+            <p>More than <strong>4 in 10</strong> shootings were <strong>fatal</strong>.</p>
+            <canvas class="pie-chart" id="fatal" width="60" height="60" data-percent="40">
+            This text is displayed if your browser does not support HTML5 Canvas.
+            </canvas>
+        </div>
+            
+        <div class="chart-container">
+            <p>In <strong>one quarter</strong> of shootings, the person shot was <strong>running away.</strong></p>
+            <canvas class="pie-chart" id="running" width="60" height="60" data-percent="25">
+            This text is displayed if your browser does not support HTML5 Canvas.
+            </canvas>
+        </div>
+            
+        <div class="chart-container">
+            <p>In <strong>one quarter</strong> of shootings, the person shot was <strong>unarmed</strong>.</p>
+            <canvas class="pie-chart" id="armed" width="60" height="60" data-percent="25">
+            This text is displayed if your browser does not support HTML5 Canvas.
+            </canvas>
+        </div>
+            
+        <div class="chart-container">
+            <p>In <strong>2 in 10</strong> shootings, the person shot was under the influence of <strong>drugs or alcohol</strong>.</p>
+            <canvas class="pie-chart" id="drugs" width="60" height="60" data-percent="20">
+            This text is displayed if your browser does not support HTML5 Canvas.
+            </canvas>
+        </div>
+ 
+        <div class="chart-container">
+            <p>At least <strong>15 percent</strong> of people shot were <strong>mentally ill or had developmental disorders</strong>.</p>
+            <canvas class="pie-chart" id="mental-illness" width="60" height="60" data-percent="15">
+            This text is displayed if your browser does not support HTML5 Canvas.
+            </canvas>
+        </div>
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.footnote %}<p><b>Notes:</b> {{ COPY.labels.footnote|smarty }}</p>{% endif %}
+        {% if COPY.labels.source %}<p><b>Data:</b> {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p><b>Credit:</b> {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

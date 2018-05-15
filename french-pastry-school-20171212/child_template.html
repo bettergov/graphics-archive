@@ -1,0 +1,51 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="slopegraph" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p><b>Source:</b> {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p><b>Credit:</b> {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <a href="#" onclick="document.getElementById('full-data').classList.remove('hidden'); this.style.display='none'; pymChild.sendHeight(); return false;" id="see-full-data">See full data</a>
+    <table class="hidden" id="full-data">
+        <colgroup>
+            <col class="description">
+            <col class="number">
+            <col class="number">
+          </colgroup>
+        
+        <thead>
+        <tr><th></th><th>2009</th><th>2013</th></tr></thead>
+        <tbody><tr><td>French Pastry School graduates</td>
+          <td>0</td>
+          <td>91</td></tr><tr><td>Kennedy-King College graduates</td>
+          <td>25</td>
+          <td>99</td></tr><tr><td>Total cohort size</td>
+          <td>300</td>
+          <td>735</td></tr><tr><td>Reported graduation rate</td>
+          <td>8.3%</td>
+          <td>25.9%</td></tr><tr><td>Graduation rate minus French Pastry School graduates</td>
+          <td>8.3%</td>
+          <td>14.1%</td></tr></tbody>
+    </table>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+        var LABELS = {{ COPY.labels.json() }};
+    </script>
+{% endblock content %}
