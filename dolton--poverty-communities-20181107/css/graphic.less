@@ -1,0 +1,73 @@
+@import 'base';
+
+.lines {
+	fill: none;
+	stroke-width: 3px;
+	stroke: #ccc;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.value text {
+	font-size: 12px;
+	font-weight: bold;
+	// fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+	.value text {
+		font-size: 10px;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.key {
+		display: none;
+	}
+}
+
+.footnotes {
+	margin-bottom: 1rem;
+}
+
+.footnotes summary {
+	color: #666;
+	font-size: 0.7rem;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	.label {
+		font-weight: bold;
+	}
+}
+
+a:hover {
+	color: #4774cc;
+	text-decoration: underline;
+}
+
+h1 {
+	margin-bottom: 0.5rem;
+	font-family: ff-more-web-pro, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2 {
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.axis.y .tick:last-child text {
+	text-anchor: start;
+	transform: translate(-15px, 0);
+}
+
+.grid.x {
+	display: none;
+}
+
+.axis {
+	font-size: 12px;
+}

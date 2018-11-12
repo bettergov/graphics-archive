@@ -1,0 +1,46 @@
+@import 'base';
+
+.lines {
+	fill: none;
+	stroke-width: 3px;
+	stroke: #ccc;
+}
+
+.value text {
+	font-size: 12px;
+	font-weight: bold;
+	fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+	.value text {
+		font-size: 10px;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.key {
+		display: none;
+	}
+}
+
+.y.axis .tick:last-child text {
+	text-anchor: start;
+	transform: translate(-25px, 0);
+}
+
+.grid.x {
+	display: none;
+}
+
+.line.total {
+	fill: darkgray;
+	stroke: none;
+	fill-opacity: 0.9;
+}
+
+.line.dolton {
+	fill: @red3;
+	stroke: none;
+	fill-opacity: 0.9;
+}
