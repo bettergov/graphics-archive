@@ -1,0 +1,67 @@
+@import 'base';
+
+.value text {
+	fill: #fff;
+
+	&.hidden {
+		display: none;
+	}
+}
+
+// Add custom styles here
+h1 {
+	font-size: 1.6em;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+
+h2 {
+	margin: 1rem 0;
+}
+
+body {
+	padding: 0;
+}
+
+.value text.out {
+	fill: #666;
+}
+
+.key {
+	margin: -0.5rem 0 1rem;
+}
+
+.key-item.capital-gains {
+	b {
+		background: #c40f3a !important;
+	}
+}
+
+.key-item.total {
+	b {
+		background: transparent !important;
+		border: 1px solid #c40f3a;
+		height: 13px;
+		width: 13px;
+		// border-style: inset;
+	}
+}
+
+rect.capital-gains {
+	fill: #c40f3a !important;
+}
+
+rect.total {
+	fill: transparent !important;
+	stroke: #c40f3a !important;
+}
+
+.value > text {
+	font-size: 13px !important;
+}
+
+text.total {
+	fill: #666;
+	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+		1px 1px 0 #fff;
+}

@@ -1,0 +1,63 @@
+{% extends 'base_template.html' %}
+
+{% block cssExtra %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+{% endblock cssExtra %}
+
+{% block content %}
+
+    <!-- {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %} -->
+
+    
+
+    <div id="graphic" class="graphic">
+        
+      {% for cat in COPY.categories %}
+        <div class="policy-card p">
+          <div class="policy-card--title">{{ cat.display }}</div>
+          
+          {% for item in COPY.data if item.category == cat.name %}
+          <div class="policy-card--row">
+
+            <div class="policy-card--text">
+              <p><a href="{{ item.link }}">{{ item.name }}</a>:</p>
+              
+              <p class="policy-card--description">{{ item.description }}</p>
+            </div>
+
+            <div class="policy-card--icons">
+              <div class="icon-full">
+                <h3>Full council</h3>
+                <i class="fas {{ item.full_icon }}"></i>
+              </div>
+              
+              {% if item.comm_icon %}
+              <div class="icon-comm">
+                <h3>Committee</h3>
+                <i class="fas {{ item.comm_icon }}"></i>
+              </div>
+              {% endif %}
+            </div>
+          
+          </div>
+          {% endfor %}
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+    <!-- {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div> -->
+
+{% endblock content %}

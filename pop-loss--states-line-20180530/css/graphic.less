@@ -1,0 +1,115 @@
+@import 'base';
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 14px;
+  font-weight: normal;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+.graphics-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.positive .line {
+  stroke: #9dcb51;
+  stroke-width: 2px;
+}
+
+.positive .area {
+  fill: #ecfbc9;
+  stroke: none;
+}
+
+.positive {
+  clip-path: url(#positive-clip);
+}
+
+.negative .line {
+  stroke: #cb6b51;
+  stroke-width: 2px;
+}
+
+.negative .area {
+  fill: #fbc9c9;
+  stroke: none;
+}
+
+.chart-label {
+  text-anchor: middle;
+  // font-weight: bold;
+}
+
+.axis.y text {
+  display: none;
+}
+
+.axis.x text {
+  display: none;
+}
+
+.chart {
+  // margin-bottom: 0.5em;
+}
+
+.chart:first-child {
+  .axis.y text {
+    display: block;
+  }
+  .axis.x text {
+    display: block;
+  }
+}
+
+.axis.x .tick {
+  display: none;
+}
+
+.axis.x .domain {
+  stroke: #666;
+}
+
+.axis.x text {
+  fill: #666;
+}
+
+.graphics-wrapper {
+  margin-top: 1em;
+}
+
+@media (min-width: 600px) {
+  html {
+    width: 600px;
+    // margin-left: auto;
+    // margin-right: auto;
+  }
+}
+
+@media (min-width: 900px) {
+  html {
+    width: 900px;
+  }
+}
+
+.main-graphic {
+  clip-path: url(#clipPath);
+}

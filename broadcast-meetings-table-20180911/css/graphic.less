@@ -1,0 +1,131 @@
+@import 'base';
+
+// Add custom styles here
+body {
+  padding: 0;
+}
+
+a:hover,
+a:focus {
+  color: #4774cc;
+  text-decoration: underline;
+}
+
+.policy-card {
+  background: #f2f2f2;
+  padding: 0 1.5rem 1.5rem;
+  font-family: acumin-pro, helvetica, sans-serif;
+  border-radius: 5px;
+}
+
+.policy-card a {
+  font-weight: bold;
+}
+
+.policy-card--title {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding: 0.5rem 1.5rem;
+  background: #ddd;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  align-items: flex-end;
+  border-radius: 5px 5px 0 0;
+  text-transform: capitalize;
+}
+
+.policy-card--title .status {
+  color: white;
+  text-transform: uppercase;
+  padding: 0 0.5rem 0.2rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+  font-size: 0.9em;
+}
+
+.policy-card--title .status.passed {
+  background: #008000;
+}
+
+.policy-card--title .status.stopped {
+  background: #ff0000;
+}
+
+.policy-card--row {
+  line-height: 1.3;
+  font-size: 0.95em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  overflow: auto;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  // align-items: center;
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.p {
+  margin-bottom: 1.7rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+i {
+  background-color: #666;
+  color: #f2f2f2;
+  // display: inline-block;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+
+  padding: 0.4em;
+  border-radius: 100%;
+
+  display: block !important;
+  margin: 0 auto;
+  // float: right;
+  // margin-left: 0.5em;
+  // margin-bottom: 0.5em;
+}
+
+.policy-card--description {
+  color: #666;
+  display: block;
+  font-size: 0.9em;
+}
+
+.policy-card--icons {
+  align-self: flex-end;
+
+  @media (min-width: 500px) {
+    flex: 0 0 155px;
+    align-self: flex-start;
+  }
+}
+
+.icon-full,
+.icon-comm {
+  display: inline-block;
+  width: 75px;
+
+  > h3 {
+    text-align: center;
+    // hyphens: auto;
+  }
+}

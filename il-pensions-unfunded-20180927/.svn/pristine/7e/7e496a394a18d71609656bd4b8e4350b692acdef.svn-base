@@ -1,0 +1,10 @@
+@import "base";
+
+// Add custom styles here
+.bars rect {
+  fill: @red3;
+}
+
+.axis.y .tick:last-of-type text {
+  transform: translate(32px,0);
+}

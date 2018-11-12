@@ -1,0 +1,89 @@
+@import 'base';
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+.graphic {
+  width: 50%;
+}
+
+.line-charts {
+  display: flex;
+}
+
+.domain {
+  display: none;
+}
+
+.grid.y g:first-child line {
+  display: block;
+}
+
+.axis.y.right .tick line,
+.axis.y.right .domain {
+  display: block;
+}
+
+.grid .tick:first-child {
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+
+.axis.x .tick {
+  &:first-of-type text {
+    text-anchor: start !important;
+  }
+
+  &:last-of-type text {
+    text-anchor: end !important;
+  }
+}
+
+.line {
+  marker-start: url(#markerCircle);
+  marker-end: url(#markerCircleOpen);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+#line-chart-2 .axis.y {
+  display: none;
+}
+
+.axis.x .tick text,
+.value text {
+  font-weight: normal;
+}
+
+.axis.x .tick:last-of-type text,
+.value:last-of-type text {
+  font-weight: bold;
+}
+
+.axis {
+  font-size: 0.9em;
+}

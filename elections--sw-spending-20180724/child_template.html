@@ -1,0 +1,87 @@
+{% extends 'base_template.html' %} {% block content %} {# if COPY.labels.headline %}
+<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %} {# if COPY.labels.subhed %}
+<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif #}
+
+<div class="graphic">
+  <table id="state-table" class="table-striped">
+    <caption>
+      {{ render(COPY.labels.subhed) | smarty }}
+    </caption>
+    <thead>
+      <tr>
+        <th>
+          <div class="sorter">
+            <div class="icon"></div>
+          </div>
+          <div class="header">{{ COPY.labels.hdr_year }}</div>
+        </th>
+        <th class="amt">
+          <div class="sorter">
+            <div class="icon"></div>
+          </div>
+          <div class="header">{{ COPY.labels.hdr_bucket_1 }}</div>
+        </th>
+        <th class="amt">
+          <div class="sorter">
+            <div class="icon"></div>
+          </div>
+          <div class="header">{{ COPY.labels.hdr_bucket_2 }}</div>
+        </th>
+        <th class="amt">
+          <div class="sorter">
+            <div class="icon"></div>
+          </div>
+          <div class="header">{{ COPY.labels.hdr_bucket_3 }}</div>
+        </th>
+        <th class="amt">
+          <div class="sorter">
+            <div class="icon"></div>
+          </div>
+          <div class="header">{{ COPY.labels.hdr_bucket_4 }}</div>
+        </th>
+        <th class="amt">
+          <div class="sorter">
+            <div class="icon"></div>
+          </div>
+          <div class="header">{{ COPY.labels.hdr_bucket_5 }}</div>
+        </th>
+        <th class="amt">
+          <div class="sorter">
+            <div class="icon"></div>
+          </div>
+          <div class="header">{{ COPY.labels.hdr_bucket_total }}</div>
+        </th>
+      </tr>
+    </thead>
+
+    {% for row in COPY.data %}
+    <tr>
+      <td data-title="{{ COPY.labels.hdr_year }}">{{ row.year }}</td>
+      <td data-title="{{ COPY.labels.hdr_bucket_1 }}" class="amt">{{ row.bucket_1 }}</td>
+      <td data-title="{{ COPY.labels.hdr_bucket_2 }}" class="amt">{{ row.bucket_2 }}</td>
+      <td data-title="{{ COPY.labels.hdr_bucket_3 }}" class="amt">{{ row.bucket_3 }}</td>
+      <td data-title="{{ COPY.labels.hdr_bucket_4 }}" class="amt">{{ row.bucket_4 }}</td>
+      <td data-title="{{ COPY.labels.hdr_bucket_5 }}" class="amt">{{ row.bucket_5 }}</td>
+      <td data-title="{{ COPY.labels.hdr_bucket_total }}" class="amt total">{{ row.bucket_total }}</td>
+    </tr>
+    {% endfor %}
+
+  </table>
+</div>
+
+{# if COPY.labels.footnote %}
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p>{{ COPY.labels.footnote|smarty }}</p>
+</div>
+{% endif #}
+
+<div class="footer">
+  {% if COPY.labels.footnote %}
+  <p>Notes: {{ COPY.labels.footnote|smarty }}</p>{% endif %} {% if COPY.labels.source %}
+  <p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %} {% if COPY.labels.credit %}
+  <p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+</div>
+
+{% endblock content %} {% block js %} {{ JS.push('js/lib/tablesort.js') }} {{ JS.push('js/lib/tablesort.numeric.js') }} {{
+JS.push('js/graphic.js') }} {{ JS.render('js/graphic-footer.js') }} {% endblock js %}
