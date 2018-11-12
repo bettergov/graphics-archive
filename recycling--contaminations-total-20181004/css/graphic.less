@@ -1,0 +1,110 @@
+@import 'base';
+
+.lines {
+	fill: none;
+	stroke-width: 3px;
+	stroke: #ccc;
+}
+
+.value text {
+	font-size: 12px;
+	font-weight: bold;
+	fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+	.value text {
+		font-size: 10px;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.key {
+		display: none;
+	}
+}
+
+#area-charts {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	// justify-content: safe;
+}
+
+.area-chart {
+	box-sizing: border-box;
+	display: inline-block;
+	min-width: 125px;
+	width: 33.33%;
+	// flex-grow: 1;
+	max-width: 250px;
+	position: relative;
+	margin-bottom: 1.5em;
+}
+
+@media (max-width: 375px) {
+	#area-charts {
+		justify-content: flex-start;
+		// width: 100%;
+	}
+}
+
+.graphic-label {
+	position: absolute;
+	width: 80%;
+	// font-family: acumin-pro-condensed;
+	font-size: 0.9em;
+	font-weight: bold;
+	z-index: 2;
+}
+
+.grid.y line {
+	stroke: transparent;
+	stroke-width: 2px;
+}
+
+#area-chart-dss {
+	.graphic-label {
+		color: #67bea3;
+	}
+
+	.area {
+		fill: #67bea3;
+	}
+}
+
+#area-chart-lrs {
+	.graphic-label {
+		color: #8b9cc3;
+	}
+
+	.area {
+		fill: #8b9cc3;
+	}
+}
+
+#area-chart-wm {
+	.graphic-label {
+		color: #eb8b64;
+	}
+
+	.area {
+		fill: #eb8b64;
+	}
+}
+
+.footer {
+	margin-top: -1.5rem;
+}
+
+body {
+	padding: 0;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 1.4em;
+	margin-bottom: 1rem;
+	// font-family: acumin-pro, helvetica, arial, sans-serif;
+	margin-top: 0;
+}
