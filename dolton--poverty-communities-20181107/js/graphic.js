@@ -50,7 +50,7 @@ var formatData = function() {
 
 		for (var key in d) {
 			if (key != 'date' && d[key] != null && d[key].length > 0) {
-				d[key] = +d[key] / 1e4;
+				d[key] = +d[key] / 1e3;
 			}
 		}
 	});
@@ -120,7 +120,7 @@ var renderLineChart = function(config) {
 
 	var margins = {
 		top: 10,
-		right: 75,
+		right: 80,
 		bottom: 20,
 		left: 30
 	};
@@ -253,7 +253,7 @@ var renderLineChart = function(config) {
 		.axisLeft(yScale)
 		.ticks(ticksY)
 		.tickFormat(function(d) {
-			return d == '1.5' ? '1.5 million people below poverty level' : d;
+			return d == '15' ? '15 million people below poverty level' : d;
 		});
 
 	/*
@@ -369,10 +369,12 @@ var renderLineChart = function(config) {
 			var last = d['values'][d['values'].length - 1];
 			var value = last[valueColumn];
 
-			var label = last[valueColumn].toFixed(1);
+			// var label = last[valueColumn].toFixed(1);
+			var label = '';
 
 			if (!isMobile) {
-				label = d['name'] + ': ' + label;
+				// label = d['name'] + ': ' + label;
+				label = d['name'];
 			}
 
 			return label;
