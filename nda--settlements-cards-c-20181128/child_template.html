@@ -1,0 +1,58 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+<div id="graphic" class="graphic">
+  <div class="card-wrapper">
+    <div class="cards"></div>
+    <div class="stack-footer">
+      <div class="navigation">
+        <span class="arrows arrow-prev disabled"
+          ><span class="prev icon-angle-left" aria-hidden="true"
+            ></span
+          ></span
+        >
+        <div class="status">
+          <span class="current">1</span> of <span class="total"></span>
+        </div>
+        <span class="arrows arrow-next"
+          ><span class="next icon-angle-right" aria-hidden="true"
+            ></span
+          ></span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/template" id="card-main">
+
+  <div class="card-main" data-slug="<%= item.slug %>">
+    <div class="card-header">
+      <% if (item.image) { %> <img src="<%= item.image %>" class="desktop thumbnail"> <% } %>
+      <h1 class="card-name"><%= item.title %></h1>
+      <% if (item.subtitle) { %><h3 class="card-title"><%= item.subtitle %></h3> <% } %>
+
+      <div class="card-lede">
+        <% if (item.image) { %> <img src="<%= item.image %>" class="mobile thumbnail"> <% } %>
+        <p class="card-quote"><%= item.lede %></p>
+      </div>
+
+      <div class="explanation explanation-full">
+          <%= item.body %>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="meta">
+        <% if (item.image_credit) { %><p>Photo: <%= item.image_credit %></p> <% } %>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/javascript">
+    var DATA = {{ COPY.data.json() }};
+</script>
+
+{% endblock content %}

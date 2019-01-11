@@ -1,0 +1,310 @@
+@import 'base';
+
+div {
+	box-sizing: border-box;
+}
+
+.initiatives {
+	h3 {
+		margin: 0;
+		// color: #787878;
+		line-height: 1.4;
+		letter-spacing: 1px;
+	}
+	h4 {
+		margin: 0 0 11px 0;
+		color: #454545;
+		// font-family: 'Gotham SSm', Helvetica, Arial, sans-serif;
+		font-family: acumin-pro, helvetica, arial, sans-serif;
+		line-height: 1.3;
+		font-weight: 400;
+		-webkit-font-smoothing: antialiased;
+	}
+}
+
+.state {
+	padding-top: 22px;
+	border-top: 2px solid #eee;
+}
+
+.initiative {
+	margin-bottom: 22px;
+
+	p {
+		margin: 0 0 6px 0;
+		font-variant-numeric: tabular-nums;
+	}
+}
+
+#graphic {
+	#tooltip {
+		display: none;
+		width: 100px;
+		text-align: left;
+		font-size: 11px;
+		line-height: 1.3;
+		color: #454545;
+		background: rgba(255, 255, 255, 0.8);
+		border: 1px solid #ccc;
+		padding: 6px;
+		position: absolute;
+
+		&.active {
+			display: block;
+		}
+	}
+
+	.states path {
+		stroke-width: 0.5;
+		fill: #ddd;
+		stroke: #fff;
+	}
+
+	.initiatives {
+		circle {
+			fill: @blue3;
+			stroke: @blue3;
+			stroke-width: 0.5;
+			fill-opacity: 0.4;
+			stroke-opacity: 0.6;
+
+			&.active {
+				stroke: @blue2;
+				stroke-opacity: 1;
+				fill-opacity: 0.6;
+				cursor: pointer;
+			}
+			&.highlight {
+				stroke: @blue1;
+				stroke-opacity: 0.8;
+			}
+
+			&.empty {
+				fill: transparent;
+				stroke: #333;
+				stroke-opacity: 0.8;
+			}
+		}
+	}
+
+	.city-labels {
+		text {
+			font-size: 11px;
+			text-anchor: middle;
+			fill: #454545;
+
+			-ms-user-select: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+
+			pointer-events: none;
+
+			&::selection {
+				background: none;
+			}
+		}
+	}
+
+	.key {
+		margin-bottom: 8px;
+
+		b {
+			border-radius: 20px;
+		}
+
+		circle {
+			fill: none;
+			stroke: #ddd;
+			stroke-width: 1px;
+		}
+		text {
+			fill: #999;
+			font-size: 10px;
+			text-anchor: middle;
+		}
+	}
+}
+
+@media screen and (min-width: 201px) {
+	.initiatives {
+		margin-top: 1rem;
+
+		h3 {
+			display: table-cell;
+			vertical-align: top;
+			width: 120px;
+		}
+		h4 {
+			font-size: 15px;
+		}
+		p {
+			font-size: 12px;
+		}
+	}
+	.initiative-list {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-align-items: flex-start;
+		align-items: flex-start;
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.state {
+		display: table;
+		width: 100%;
+
+		.initiative {
+			width: 50%;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.state .initiative {
+		width: 33%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#graphic {
+		.key text {
+			font-size: 7px;
+		}
+		#tooltip {
+			font-size: 10px;
+		}
+		.city-labels text {
+			font-size: 9.5px;
+		}
+	}
+
+	.initiatives {
+		h3 {
+			margin-bottom: 11px;
+			font-size: 11px;
+		}
+
+		h4 {
+			font-size: 12px;
+			margin-bottom: 11px;
+		}
+
+		p {
+			font-size: 11px;
+		}
+
+		.info {
+			padding-left: 11px;
+			border-left: 2px solid #eee;
+		}
+	}
+}
+
+#graphic .states {
+	.income-tax-graduated {
+		fill: #af8dc3;
+	}
+
+	.income-tax-flat {
+		fill: #7fbf7b;
+	}
+
+	.income-tax-no {
+		// fill: #bbb;
+	}
+}
+
+.income-tax-graduated {
+	color: #af8dc3;
+	font-weight: bold;
+}
+
+.income-tax-flat {
+	color: #7fbf7b;
+	font-weight: bold;
+}
+
+.income-tax-no {
+	color: #bbb;
+	font-weight: bold;
+}
+
+h1 {
+	font-family: acumin-pro-condensed, helvetica, arial, sans-serif;
+	font-size: 1.5rem;
+	line-height: 1.1;
+	margin: 0 0 1rem;
+}
+
+@media screen and (max-width: 500px) {
+	h1 {
+		font-size: 1.3rem;
+	}
+
+	.initiatives h3 {
+		display: block;
+	}
+
+	.state {
+		padding-top: 11px;
+		padding-bottom: 11px;
+	}
+
+	.state .initiative {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 0;
+		width: 50%;
+		padding-left: 0;
+
+		.info {
+			border-left: none;
+			padding-left: 0;
+		}
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.state .initiative {
+		width: 100%;
+		padding: 0;
+	}
+
+	.initiatives h3 {
+		width: 100%;
+	}
+}
+
+.graphic {
+	margin: 0;
+}
+
+.initiatives summary {
+	color: #666;
+	font-size: 0.8rem;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	.label {
+		font-weight: bold;
+	}
+}
+
+details .state {
+	margin-top: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+.income-tax-graduated .accent {
+	color: #999;
+	font-style: italic;
+	font-weight: normal;
+	letter-spacing: normal;
+	text-transform: none;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : BGA</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="https://media.bettergov.org/favicons/favicon.ico">
+
+    <base target="_blank">
+
+    
+    <!-- Fonts -->
+    <script src="https://use.typekit.net/mqd7hhp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    
+
+    <!-- Configuration -->
+    <script type="text/javascript">
+        GOOGLE_ANALYTICS_ACCOUNT_ID = 'UA-18960172-5';
+        GOOGLE_ANALYTICS_PROJECT_SLUG = 'nda--settlements-cards-c-20181128';
+    </script>
+
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <!-- Flickity JS -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- CSS + LESS -->
+    
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1543444660" />
+</head>
+<body>
+    <!-- Analytics -->
+    
+    
+    
+    <script type="text/javascript" src="js/graphic-header.js?1543444660"></script>
+    
+
+    
+
+<div id="graphic" class="graphic">
+  <div class="card-wrapper">
+    <div class="cards"></div>
+    <div class="stack-footer">
+      <div class="navigation">
+        <span class="arrows arrow-prev disabled"
+          ><span class="prev icon-angle-left" aria-hidden="true"
+            ></span
+          ></span
+        >
+        <div class="status">
+          <span class="current">1</span> of <span class="total"></span>
+        </div>
+        <span class="arrows arrow-next"
+          ><span class="next icon-angle-right" aria-hidden="true"
+            ></span
+          ></span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/template" id="card-main">
+
+  <div class="card-main" data-slug="<%= item.slug %>">
+    <div class="card-header">
+      <% if (item.image) { %> <img src="<%= item.image %>" class="desktop thumbnail"> <% } %>
+      <h1 class="card-name"><%= item.title %></h1>
+      <% if (item.subtitle) { %><h3 class="card-title"><%= item.subtitle %></h3> <% } %>
+
+      <div class="card-lede">
+        <% if (item.image) { %> <img src="<%= item.image %>" class="mobile thumbnail"> <% } %>
+        <p class="card-quote"><%= item.lede %></p>
+      </div>
+
+      <div class="explanation explanation-full">
+          <%= item.body %>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="meta">
+        <% if (item.image_credit) { %><p>Photo: <%= item.image_credit %></p> <% } %>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/javascript">
+    var DATA = [{"slug": "teva-pharmaceutical-industries", "image": "Doctor-Holding-out-a-Bottle-of-Pills-1030605128_838x1258.jpg", "title": "Teva Pharmaceutical Industries Ltd.", "subtitle": null, "lede": null, "body": "<p>\nJohnson & Johnson\u2019s subsidiary, Janssen Pharmaceuticals, \u00a0was just one of the companies that used a judge\u2019s protective order to push back against USA Today\u2019s FOIA request, others included Teva Pharmaceutical Industries Ltd. and its subsidiary, Cephalon Inc.\n<span class=\"card-quote\">\u201cTeva produced a total of 127,386 pages of documents to the city, with \u2018a number\u2019 designated \u2018Confidential\u2019 or \u2018Protected.\u2019 Additionally, the company provided a 198-page marketing plan for the drug in question, Fentora, the complaint said.\u201d</span>\n<span class=\"card-cite\"><em><a href=\"https://chicago.suntimes.com/news/pharmaceutical-company-seeks-injunction-to-block-city-from-fulfilling-reporters-foia-request/\">Chicago Sun-Times</a></em></span>\n</p>\n", "image_credit": "(skodonnell / iStock)"}, {"slug": "general-motors", "image": "General-Motors-Headquarters,-Detroit-Renaissance-Center,-621374394_2122x1416.jpg", "title": "General Motors", "subtitle": null, "lede": null, "body": "<p>\n<span class=\"card-quote\">\u201cAs a result of the secrecy in the GM cases and other settlements and protective orders, it took consumers much longer than necessary to discover dangers to health and safety.\u201d</span>\n<span class=\"card-cite\">Alliance for Justice, Center for Justice & Democracy, and partners, <a href=\"https://consumerfed.org/pdfs/Consumer-ltr_SunshineinLitigation_2014.pdf\">lawsuit</a></span>\n</p>\n\n<p>\n<span class=\"card-quote\">\u201cGM\u2019s priority must always be drivers\u2019 safety, GM should have quickly informed vehicle owners that if its ignition switches malfunctioned while driving, it could cause deadly safety problems.\u201d</span>\n<span class=\"card-cite\">Illinois Attorney General Lisa Madigan, <a href=\"http://www.illinoisattorneygeneral.gov/pressroom/2017_10/20171019b.html\">press release</a></span></p>", "image_credit": "The Detroit Renaissance Center, world headquarters of General Motors. (RiverNorthPhotography / iStock)"}];
+</script>
+
+
+
+    <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+    
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="js/graphic-footer.js?1543444660"></script>
+    
+</body>
+</html>

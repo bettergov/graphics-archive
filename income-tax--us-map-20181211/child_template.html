@@ -1,0 +1,77 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div class="graphic">
+        <div class="header">
+            {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+            {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+        </div>
+
+        <div id="graphic" class="graphic">
+            <img src="fallback.png" alt="[Chart]" class="fallback" />
+        </div>
+    </div>
+
+    <details class="initiatives" onclick="sendHeight()">
+        <summary><span class="label"> {{ "Individual states' tax rates" | smarty }}</span> (click to expand)</summary>
+        
+        {% for tax_type in COPY.data|groupby('income_tax_type') %}
+        <div class="state">
+            {% if tax_type.grouper == 'graduated' %}
+              <h3 class="income-tax-{{tax_type.grouper | lower }}">{{ tax_type.grouper }} income tax <span class="accent">Highest rate shown</span></h3>
+            {% else %}
+              <h3 class="income-tax-{{tax_type.grouper | lower }}">{{ tax_type.grouper }} income tax</h3>
+            {% endif %}
+            <div class="initiative-list">
+            
+            {% for state in tax_type.list %}
+                <div class="initiative {{ state.state_full|classify }}">
+                    <h4>{{ state.state_full }}</h4>
+                    <div class="info">
+                      {% if state.tax_upper %}
+                        {% set tax_pct = state.tax_upper|float * 100 %}
+                        <p class="amt"><strong>{{ tax_pct|round(2) }}%</strong></p>
+                      {% endif %}
+                    </div>
+                    {# <div class="info">
+                        <div class="amounts">
+                             {% if initiative.amt_billions %}<p class="amt"><strong>${{ initiative.amt_billions }} billion</strong>{% if initiative.tax_duration %} over {{ initiative.tax_duration }} years{% endif %}</p>{% endif %}
+                            {% if initiative.tax_type %}<p class="funding">Funded by: {{ initiative.tax_type }}{% if initiative.tax_amt %} ({{ initiative.tax_amt }}){% endif %}</p>{% endif %}
+                        </div>
+                        <div class="about">
+                            {% if initiative.desc %}<p class="desc">{{ initiative.desc }}</p>{% endif %}
+                            {% if initiative.story_link %}<p class="related">Related coverage: <a href="{{ initiative.story_link }}">&ldquo;{{ initiative.story_headline }}&rdquo;</a> <span class="source">({{ initiative.story_source }})</span></p>{% endif %}
+                        </div>
+                    </div> #}
+                </div>
+            {% endfor %}
+            
+            </div>
+        </div>
+        {% endfor %}
+    </details>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script>
+    function sendHeight() {
+        setTimeout(function() { pymChild.sendHeight(); }, 100);
+    }
+    </script>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}

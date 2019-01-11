@@ -1,0 +1,48 @@
+@import 'base';
+
+// Add custom styles here
+.x.grid {
+	// display: none;
+}
+
+.x.axis {
+	// display: none;
+}
+
+.bars .edward-m-burke {
+	fill: @teal2;
+}
+
+.bars rect {
+	fill: @teal4;
+}
+
+h2 {
+	margin-top: 1rem;
+}
+
+h2 strong {
+	color: @teal2;
+}
+
+.labels span {
+	line-height: 1.1;
+}
+
+.x.grid .tick:not(:first-of-type) line {
+	stroke-dasharray: 5;
+}
+
+.x.axis .domain {
+	display: none;
+}
+
+@media (max-width: 500px) {
+	.x.axis {
+		// display: none;
+	}
+}
+
+.value text:first-child {
+	transform: translateY(-4px);
+}

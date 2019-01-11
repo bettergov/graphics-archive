@@ -1,0 +1,24 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <!-- <img src="fallback.png" alt="[Chart]" class="fallback" /> -->
+        <div class="chart-container">
+            <p>Nearly <strong>two-thirds</strong> of people shot were <strong>black</strong>.</p>
+            <canvas class="pie-chart" id="race" width="150" height="150" data-percent="81">
+            This text is displayed if your browser does not support HTML5 Canvas.
+            </canvas>
+        </div>
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.footnote %}<p><b>Notes:</b> {{ COPY.labels.footnote|smarty }}</p>{% endif %}
+        {% if COPY.labels.source %}<p><b>Data:</b> {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p><b>Credit:</b> {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

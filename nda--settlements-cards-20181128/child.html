@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : BGA</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="https://media.bettergov.org/favicons/favicon.ico">
+
+    <base target="_blank">
+
+    
+    <!-- Fonts -->
+    <script src="https://use.typekit.net/mqd7hhp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    
+
+    <!-- Configuration -->
+    <script type="text/javascript">
+        GOOGLE_ANALYTICS_ACCOUNT_ID = 'UA-18960172-5';
+        GOOGLE_ANALYTICS_PROJECT_SLUG = 'nda--settlements-cards-20181128';
+    </script>
+
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <!-- Flickity JS -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- CSS + LESS -->
+    
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1543444672" />
+</head>
+<body>
+    <!-- Analytics -->
+    
+    
+    
+    <script type="text/javascript" src="js/graphic-header.js?1543444672"></script>
+    
+
+    
+
+<div id="graphic" class="graphic">
+  <div class="card-wrapper">
+    <div class="cards"></div>
+    <div class="stack-footer">
+      <div class="navigation">
+        <span class="arrows arrow-prev disabled"
+          ><span class="prev icon-angle-left" aria-hidden="true"
+            ></span
+          ></span
+        >
+        <div class="status">
+          <span class="current">1</span> of <span class="total"></span>
+        </div>
+        <span class="arrows arrow-next"
+          ><span class="next icon-angle-right" aria-hidden="true"
+            ></span
+          ></span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/template" id="card-main">
+
+  <div class="card-main" data-slug="<%= item.slug %>">
+    <div class="card-header">
+      <% if (item.image) { %> <img src="<%= item.image %>" class="desktop thumbnail"> <% } %>
+      <h1 class="card-name"><%= item.title %></h1>
+      <% if (item.subtitle) { %><h3 class="card-title"><%= item.subtitle %></h3> <% } %>
+
+      <div class="card-lede">
+        <% if (item.image) { %> <img src="<%= item.image %>" class="mobile thumbnail"> <% } %>
+        <p class="card-quote"><%= item.lede %></p>
+      </div>
+
+      <div class="explanation explanation-full">
+          <%= item.body %>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="meta">
+        <% if (item.image_credit) { %><p>Photo: <%= item.image_credit %></p> <% } %>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/javascript">
+    var DATA = [{"slug": "weinstein-company", "image": "Harvey_Weinstein_Ce\u0301sars_2014_(cropped).jpg", "title": "The Weinstein Company", "subtitle": null, "lede": null, "body": "<p>\n<span class=\"card-quote\">\u201cThis is a watershed moment for efforts to address the corrosive effects of sexual misconduct in the workplace. The Weinstein Company\u2019s agreement to release victims of and witnesses to sexual misconduct from non-disclosure agreements\u2026will finally enable voices that have for too long been muzzled to be heard.\u201d</span>\n<span class=\"card-cite\">Former New York Attorney General Eric Schneiderman, quoted by <em><a href=\"https://www.rollingstone.com/movies/movie-news/weinstein-company-files-for-bankruptcy-lifts-employees-ndas-204039/\">Rolling Stone</a></em></span>\n</p>\n\n<p>\n<span class=\"card-quote\">\u201c[The matter] has shone a Hollywood-sized spotlight on [non-disclosure agreements]\u2026that will be difficult, if not impossible, to dim.\u201d</span>\n<span class=\"card-cite\">Michelle Kaminsky, <em><a href=\"https://www.forbes.com/sites/michellefabio/2017/10/26/the-harvey-weinstein-effect-the-end-of-nondisclosure-agreements-in-sexual-assault-cases/\">Forbes</a></em></span>\n</p>", "image_credit": "Harvey Weinstein (Georges Biard / Wikimedia Commons)"}, {"slug": "ford-motor-company", "image": "ford-022118_van.jpg", "title": "Ford Motor Company", "subtitle": null, "lede": null, "body": "<p>\n<span class=\"card-quote\">\u201cKeith Hunt, an attorney who has represented hundreds of women in their claims against Ford\u2026suggested that the city could do more to prevent the rampant use of nondisclosure agreements, which keep victims silent by limiting what they can say in exchange for part of a settlement.\u201d</span>\n<span class=\"card-cite\">Samantha Bomkamp, <em><a href=\"https://www.chicagotribune.com/business/ct-biz-sexual-harassment-finance-committee-hearing-20180221-story.html/\">Chicago Tribune</a></em></span>\n</p>\n", "image_credit": "Christie Van, a plaintiff in a lawsuit against Ford Motor Co. alleging racial and sexual harassment at two Chicago plants, testified at City Hall. (Michelle Kanaar / For the Sun-Times)"}, {"slug": "catholic-church", "image": "Priest-clerical-collar-164870749_725x483.jpg", "title": "Catholic Church", "subtitle": null, "lede": null, "body": "<p>\n<span class=\"card-quote\">\u201cConfidentiality agreements are usually written to keep the victim afraid of talking to anyone at all. If we learn nothing else from this and prior investigations, let it be this: that sexual abuse, in particular child sexual abuse, is not just a private wrong, to be handled \u2018in house.\u2019 It is a crime against society.\u201d</span>\n<span class=\"card-cite\">40th Statewide Investigating Grand Jury, <a href=\"http://media-downloads.pacourts.us/InterimRedactedReportandResponses.pdf?cb=32148\">report</a></span>\n</p>\n\n<p>\n<span class=\"card-quote\">\u201cIf they had only done what we asked them to do \u2014 and what they asked us to do \u2014 was to find out how many offenders and how many victims there were. \u2026 But they withheld. They withheld the information. It's obvious.\u201d</span>\n<span class=\"card-cite\">Illinois Supreme Court Justice Anne Burke, quoted by <em><a href=\"http://www.nprillinois.org/post/illinois-supreme-court-justice-says-government-not-church-should-investigate-catholic-sex-abuse\">NPR Illinois</a></em></span>\n</p>", "image_credit": "(Studio-Annika / iStock)"}, {"slug": "larry-nassar", "image": "1170px-USA_Gymnastics_logo.jpg", "title": "Larry Nassar", "subtitle": null, "lede": null, "body": "<p>\n<span class=\"card-quote\">\u201cOlympic gold medalist McKayla Maroney was bound by the terms of a non-disclosure agreement signed as part of financial settlement with USA Gymnastics that prevented her from publicly accusing Nassar of sexual abuse.\u201d</span>\n<span class=\"card-cite\">Paul Caine and Brandis Friedman, <em><a href=\"https://news.wttw.com/2018/02/12/critics-say-non-disclosure-agreements-enable-abuse/\">Chicago Tonight</a></em></span>\n</p>\n", "image_credit": null}, {"slug": "public-sector-settlements", "image": "galloway-professional-mid.jpg", "title": "Public sector settlements", "subtitle": null, "lede": null, "body": "<p>\nIn 2017, Missouri State Auditor Nicole Galloway looked at $115 million in legal settlements and judgments involving state entities.\n<span class=\"card-quote\">\"...the dollar figure wasn\u2019t our only concern\u2026There was another, equally troubling part to my audit. Just as we\u2019ve seen in Washington, D.C., the state of Missouri has used nondisclosure agreements (often referred to as NDAs) in some legal settlements.\u201d</span>\n<span class=\"card-cite\">Missouri State Auditor Nicole Galloway, <em><a href=\"https://www.stltoday.com/opinion/columnists/taxpayer-funded-nondisclosure-agreements-can-hide-big-problems/article_f4c23fe5-4609-5a12-af3b-1ca7cb3de1a7.html\">St. Louis Post-Dispatch</a></em></span>\n</p>\n", "image_credit": "Missouri State Auditor Nicole Galloway (Office of Missouri State Auditor)"}];
+</script>
+
+
+
+    <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+    
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="js/graphic-footer.js?1543444672"></script>
+    
+</body>
+</html>
