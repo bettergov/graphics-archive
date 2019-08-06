@@ -1,0 +1,25 @@
+@import "./lib/base";
+
+table.dataTable {
+  width: 100% !important;
+}
+
+.dtr-details {
+  display: block !important;
+}
+
+.dtr-data {
+  float: right;
+}
+
+.sorting_1 {
+  display: flex;
+}
+
+table.dataTable.stripe {
+  tbody tr.odd,
+  tbody tr.odd.parent + tr.child {
+    @accent: lighten(rgb(7, 201, 255), 20%);
+    background-color: lighten(@accent, 26%) !important;
+  }
+}

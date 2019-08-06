@@ -1,0 +1,50 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.markdown().render(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table">
+    <thead>
+      <tr>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_ap %></div>
+        </th>
+        <th class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_value %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr>
+      <td data-title="<%= COPY.labels.hdr_state %>"><%= row.name %></td>
+      <td data-title="<%= COPY.labels.hdr_ap %>" class="amt"><%= t.comma(row.departments) %></td>
+      <td data-title="<%= COPY.labels.hdr_value %>" class="amt"><%= t.comma(row.officers) %></td>
+    </tr>
+    <% }) %>
+
+  </table>
+</div>
+
+<div class="footer">
+  <% if (COPY.labels.footnote) { %>
+  <p><strong>Notes:</strong> <%= t.markdown().renderInline(COPY.labels.footnote) %></p>
+  <% } %>
+  <% if (COPY.labels.source) { %>
+  <p><strong>Source:</strong> <%= t.markdown().renderInline(COPY.labels.source) %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p><strong>Credit:</strong> <%= t.markdown().renderInline(COPY.labels.credit) %></p>
+  <% } %>
+</div>

@@ -1,0 +1,84 @@
+@import "./lib/base";
+
+.value text {
+  fill: #fff;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.sticky {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+
+body {
+  overflow: auto;
+  overflow: initial;
+}
+
+#main-container {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.footer {
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  // z-index: -1;
+}
+
+.graphic {
+  // z-index: -2;
+}
+
+text.outside {
+  fill: currentColor;
+}
+
+.underline {
+  border-bottom: 2px solid currentColor;
+}
+
+span.aux {
+  color: @teal3;
+  font-weight: bold;
+}
+
+span.sworn {
+  color: #aaa;
+  font-weight: bold;
+}
+
+.footer p {
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+}
+
+.footer hr {
+  color: #eee;
+  width: 85%;
+  margin-top: 0;
+}
+
+// h1 {
+//   position: sticky;
+//   top: 0;
+//   z-index: 9;
+//   background: white;
+// }
+
+text.value {
+  fill: currentColor;
+  font-weight: bold;
+}
+
+tspan.aux {
+  fill: @teal3;
+}

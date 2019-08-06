@@ -1,0 +1,25 @@
+{
+  "templateSheet": "116kPWpym4uk2sATRKgIcab7gC9cOFdrhM9iHGFw_qgw",
+  "files": [
+    "index.html",
+    "graphic.js",
+    "graphic.less",
+    "*.png",
+    "*.jpg",
+    "*.json",
+    "!manifest.json",
+    "*.geojson",
+    "*.csv"
+  ],
+  "sheet": "1DIK-6x6sEc8pVar9vptT9c3hSGmMaLyQlcOYViUm8c4",
+  "installedPackagesAtCreation": {
+    "d3-array": "^2.0.3",
+    "d3-axis": "^1.0.12",
+    "d3-format": "^1.3.2",
+    "d3-scale": "^2.2.2",
+    "d3-selection": "^1.4.0",
+    "d3-shape": "^1.3.4",
+    "d3-svg": "^0.2.2",
+    "lodash": "^4.17.11"
+  }
+}

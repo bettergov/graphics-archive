@@ -1,0 +1,34 @@
+<h2 class="subhed">After demolishing its former recreation hall, Lyons embarked on plan to redevelop the site with M &amp; F Masonry, a sister company of Skyway Homes. Skyway Homes built Mayor Chris Getty's current home.</h2>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+  <figure>
+    <div class="thumbnail">
+      <img src="lyons-gage-ave.jpg" alt="Gage home">
+    </div>
+    <figcaption>
+      <h2 class="address">Former recreation hall property on Gage Avenue</h2>
+      <ul>
+        <li><div class="date">Nov. 2017</div>Lyons gets the 16,988-square-foot property appraised at about <strong>$85,000</strong>.</li>
+        <li><div class="date">Dec. 2017</div>Lyons sells the property to M &amp; F Masonry for <strong>$72,000</strong> after the firm submits the only bid. M &amp; F begins construction on two homes.</li>
+        <li><div class="date">April 2019</div>A couple secures a <strong>$427,310 mortgage</strong> for one of the homes. The other remains unfinished.</li>
+      </ul>
+    </figcaption>
+  </figure>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p><strong>Source:</strong> <%= t.markdown().renderInline(COPY.labels.source) %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p><strong>Credit:</strong> <%= t.markdown().renderInline(COPY.labels.credit) %></p>
+  <% } %>
+</div>

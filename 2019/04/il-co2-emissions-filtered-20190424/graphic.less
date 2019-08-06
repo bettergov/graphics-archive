@@ -1,0 +1,99 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+
+  .display-desktop {
+    display: block;
+  }
+}
+
+.graphic-wrapper .key {
+  .key-item {
+    transform: translateY(-10px);
+  }
+
+  .key-item b {
+    margin-bottom: 1rem;
+  }
+
+  .key-item label {
+    white-space: normal;
+    // color: currentColor;
+  }
+
+  .key-item.electric-power {
+    transform: translateY(-5px);
+  }
+
+  .key-item.transportation {
+    transform: translateY(-15px);
+  }
+}
+
+.voronoi path {
+  fill: none;
+  pointer-events: all;
+  // stroke: red;
+  // stroke-opacity: 0.2;
+}
+
+.focus text {
+  @shadow: white;
+
+  font-size: 13px;
+  text-shadow: -1px -1px 0 @shadow, 1px -1px 0 @shadow, -1px 1px 0 @shadow,
+    1px 1px 0 @shadow;
+
+  tspan:first-child {
+    fill: currentColor;
+  }
+
+  tspan:not(:first-child) {
+    fill: #666;
+  }
+
+  tspan:nth-child(2n + 1) {
+    font-weight: bold;
+    font-size: 0.95em;
+  }
+}
+
+.graphic > .key {
+  @screen-mobile {
+    display: flex;
+  }
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  margin-top: 0;
+
+  .key-item {
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  label {
+    margin-right: 1rem;
+  }
+}

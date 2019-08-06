@@ -1,0 +1,41 @@
+@import "./lib/base";
+
+.labels li {
+  text-align: left;
+}
+
+.graphic-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.bar-chart {
+  width: 90%;
+
+  @media screen and (min-width: 700px) {
+    width: 45%;
+    max-width: 600px;
+  }
+}
+
+.graphic-header {
+  margin-top: 0;
+  text-align: center;
+}
+
+.inflow {
+  color: #7fbf7b;
+}
+
+.outflow {
+  color: #af8dc3;
+}
+
+.bars {
+  fill: currentColor;
+}
+
+.value text.in {
+  fill: #f7f7f7;
+}

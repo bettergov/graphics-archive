@@ -1,0 +1,70 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.markdown().render(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <div id='money-squares'>
+    <div class="square outer">
+      <span class="label">All lobbyists' compensation, 2012-2018: <br> <strong>$137.6 million</strong></span>
+      <div class="square aviation">
+        <span class="label">From companies with an interest in aviation: <br> <strong>$31.3 million</strong></span>
+        <!-- <div class="rect lobbyists wrapper">
+          <div class="rect lobbyist a"></div>
+          <div class="rect lobbyist b"></div>
+          <div class="rect lobbyist c"></div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div id="firms-wrapper">
+    <% COPY.data.forEach(function(row) { %>
+    <div class="firm card">
+      <h3><%= row.company %></h3>
+      <table>
+      <thead>
+      <tr><th>Aviation-interested</th><th>All</th></tr>
+      </thead>
+      <tbody>
+      <tr><td><%= row.companyAviationMoney %> (<%= row.companyAviationPct %>)</td><td><%= row.company_total_money %> (<%= row.company_total_pct %>)</td></tr>
+      </tbody>
+      </table>
+      <hr>
+      <div class="top-earner">
+        <h4><span>Top earner:</span> <%= row.top_earner %></h4>
+        <p><%= row.top_earner_description %></p>
+        <table>
+        <thead>
+        <tr><th>Aviation-interested</th><th>All</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>$<%= row.top_earner_aviation_money %> million</td><td>$<%= row.top_earner_total_money %> million</tr>
+        </tbody>
+        </table>
+        <hr>
+        <p><strong>Clients include:</strong> <%= row.company_clients %></p>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p><strong>Source:</strong> <%= t.markdown().renderInline(COPY.labels.source) %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p><strong>Credit:</strong> <%= t.markdown().renderInline(COPY.labels.credit) %></p>
+  <% } %>
+</div>

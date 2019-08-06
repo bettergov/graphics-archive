@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Metra fare calculator</title>
+  <meta name="description" content="Metra fare calculator | Better Government Association">
+  <meta name="author" content="Better Government Association">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Load fonts -->
+	<script src="https://use.typekit.net/mqd7hhp.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <!-- Load stylesheets -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/calculator.css">
+
+  <!-- Load script -->
+  <script
+			  src="//code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/metra.js"></script>
+  <script type="text/javascript" src="js/bootstrap3-typeahead.min.js"></script>
+</head>
+
+<body>
+  <div class="bga-g-before">
+  	<div class="headline">Metra fare calculator</div>
+    <div class="deck">
+      <p>Select a train line, departure and arrival station to see old, current and proposed rates for the trip. First enter the train line. Then search stations <b>by name</b> or <b>by zone</b>.</p>
+    </div>
+  </div>
+
+  <div class="bga-g-main">
+    <form id="calculator">
+      <div class="form-group">
+        <label for="rail-select">Train line:</label>
+        <input id="rail-select" type="text" placeholder="Train line" autocomplete="off" data-provide="typeahead" required>
+      </div>
+
+      <div id="from" class="form-group">
+        <label for="point-a">From:</label>
+        <input id="point-a" type="text" placeholder="Departure station" autocomplete="off" data-provide="typeahead" required>
+      </div>
+
+      <div id="to" class="form-group">
+        <label for="point-b">To:</label>
+        <input id="point-b" type="text" placeholder="Arrival station" autocomplete="off" data-provide="typeahead" required>
+      </div>
+
+      <button type="button" class="btn btn-default">Get fares</button>
+    </form>
+
+    <table id="output"></table>
+  </div>
+
+  <div class="bga-g-after">
+    <div class="notes"><b>Notes:</b> Metra's proposed fare increases include: a 25 cent increase on all one-way tickets; 10-ride tickets priced 9.5 times the one-way ticket price (up from 9 times); monthly passes priced 29 times the one-way ticket price (up from 28.5 times). Metra also proposes weekend passes increase from $8 to $10 (not shown).</div>
+  	<div class="source"><b>Data:</b> Metra</div>
+    <div class="credit"><b>Credit:</b> <a href="mailto:pjudge@bettergov.org">Patrick Judge | BGA</a></div>
+  </div>
+
+  <!-- Load as Pym.js child -->
+	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+	<script type="text/javascript">
+		var pymChild = new pym.Child();
+	</script>
+
+  <script type="text/javascript" src="js/metra-2.js"></script>
+
+</body>
+
+</html>

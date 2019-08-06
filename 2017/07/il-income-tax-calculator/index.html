@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="2017%2007%20il-income-tax-calculator_files/analytics.js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app12.us.archive.org';v.server_ms=320;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="2017%2007%20il-income-tax-calculator_files/ait-client-rewrite.js" charset="utf-8"></script>
+<script type="text/javascript">
+WB_wombat_Init('https://web.archive.org/web', '20180730144331', 'graphics.bettergov.org');
+</script>
+<script type="text/javascript" src="2017%2007%20il-income-tax-calculator_files/wbhack.js" charset="utf-8"></script>
+<script type="text/javascript">
+__wbhack.init('https://web.archive.org/web');
+</script>
+<link rel="stylesheet" type="text/css" href="2017%2007%20il-income-tax-calculator_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="2017%2007%20il-income-tax-calculator_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+  <meta charset="utf-8">
+
+  <title>Illinois income tax calculator | Better Government Association</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="stylesheet" href="2017%2007%20il-income-tax-calculator_files/style.html">
+  <link rel="stylesheet" href="2017%2007%20il-income-tax-calculator_files/bootstrap.css" integrity="" crossorigin="anonymous">
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+  <style>
+    html,body {
+        width: 100%;
+        height: 100%;
+    }
+    body {
+      background-color: transparent;
+    }
+    form {
+      display: block;
+      padding: 0 10px;
+      width: 100%;
+    }
+    input {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+    #outputWrapper {
+      /*display: block;
+      height: 60px;
+      overflow: hidden;*/
+    }
+    #outputStatement {
+      display: none;
+      margin: 10px 0;
+      /*height: 60px;*/
+    }
+    .input-group {
+      font-size: 16px;
+      height: 36px;
+      /*position: relative;*/
+    }
+
+    .input-group input, .input-group .btn {
+      height: 36px;
+    }
+
+    .input-icon > i {
+      position: absolute;
+      display: block;
+      transform: translate(0, -50%);
+      top: 50%;
+      pointer-events: none;
+      width: 25px;
+      text-align: center;
+      font-style: normal;
+    }
+
+    .input-icon > input {
+      padding-left: 25px;
+    }
+  </style>
+</head>
+
+<body cz-shortcut-listen="true">
+
+  <!--<form name="calculator" onsubmit="document.calculator.ans.value=eval(document.calculator.ans.value); return false;">-->
+  <form name="calculator" onsubmit="calcTaxes(document.calculator.ans.value); return false;">
+    <h4>Illinois income tax calculator</h4>
+    <!--<p>Enter your income.</p>-->
+    <div class="input-icon input-group">
+      <i>$</i>
+      <input type="number" name="ans" autocomplete="off" placeholder="Amount before taxes">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">
+          <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+        </button>
+      </span>
+    </div>
+    <div id="outputWrapper">
+      <p id="outputStatement">You now owe the state <strong>$<span id="newTax"></span></strong> in income tax, <strong>$<span id="taxDifference"></span></strong> more than you paid under the old rate.</p>
+    </div>
+  </form>
+
+  <script src="2017%2007%20il-income-tax-calculator_files/jquery-3.js" integrity="" crossorigin="anonymous"></script>
+
+  <script>
+    Number.prototype.formatMoney = function(c, d, t){
+    var n = this, 
+        c = isNaN(c = Math.abs(c)) ? 2 : c, 
+        d = d == undefined ? "." : d, 
+        t = t == undefined ? "," : t, 
+        s = n < 0 ? "-" : "", 
+        i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
+        j = (j = i.length) > 3 ? j % 3 : 0;
+       return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+     };
+
+     function calcTaxes(income) {
+        $('p#outputStatement').fadeIn("fast");
+        document.getElementById('newTax').innerHTML = (income * .0495).formatMoney(2);
+        document.getElementById('taxDifference').innerHTML = (income * .012).formatMoney(2);
+        //pymChild.sendHeight();
+     }
+
+     //$('p#outputStatement').fadeOut("fast");
+
+     var pymChild = new pym.Child();
+  </script>
+ 
+
+
+
+
+</body><!--
+     FILE ARCHIVED ON 14:43:31 Jul 30, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:55:30 Jan 16, 2019.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+--><!--
+playback timings (ms):
+  LoadShardBlock: 215.533 (3)
+  esindex: 0.01
+  captures_list: 245.798
+  CDXLines.iter: 15.918 (3)
+  PetaboxLoader3.datanode: 213.734 (5)
+  exclusion.robots: 0.198
+  exclusion.robots.policy: 0.183
+  RedisCDXSource: 5.903
+  PetaboxLoader3.resolve: 52.428 (3)
+  load_resource: 60.916
+--></html>

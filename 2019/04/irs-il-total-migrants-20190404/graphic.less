@@ -1,0 +1,135 @@
+@import "./lib/base";
+
+.bar text {
+  fill: #fff;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 3px;
+}
+
+.area {
+  fill: black;
+  fill-opacity: 0.5;
+  stroke: none;
+}
+
+.graphic-container {
+  display: flex;
+  flex-direction: column;
+
+  .graphic {
+    width: 100%;
+  }
+
+  @media @screen-mobile-above {
+    flex-direction: row;
+
+    .graphic {
+      width: 50%;
+    }
+  }
+}
+
+.bar path {
+  fill-opacity: 0.5;
+}
+
+.labels text.label {
+  fill-opacity: 0.75;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.label,
+.label tspan {
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5),
+    1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5),
+    1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.data-charted .label {
+  text-transform: uppercase;
+}
+
+.data-charted {
+  color: #555;
+  // color: @red1;
+}
+
+.inflow {
+  color: #a6dba0;
+  fill: currentColor;
+}
+
+text.inflow,
+strong.inflow {
+  color: #008837;
+  fill: currentColor;
+}
+
+.outflow {
+  color: #c2a5cf;
+  fill: currentColor;
+  fill-opacity: 0.5;
+}
+
+text.outflow {
+  color: #7b3294;
+  fill: currentColor;
+}
+
+strong.inflow {
+  color: #008837;
+  opacity: 0.75;
+}
+
+strong.outflow {
+  color: #7b3294;
+  opacity: 0.75;
+}
+
+.small-multiple-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.small-multiple {
+  width: 165px;
+
+  .label {
+    display: none;
+  }
+
+  .y.axis .tick > text {
+    display: none;
+  }
+
+  .y.axis .tick:first-of-type > text,
+  .y.axis .tick:last-of-type > text {
+    display: unset;
+  }
+
+  &:nth-child(1) {
+    .y.axis {
+      display: unset;
+    }
+  }
+}
+
+.graphic-header {
+  text-align: center;
+}

@@ -1,0 +1,134 @@
+/**
+ * @file calculator.css
+ * Style for calculator.
+ *
+ * @author Patrick Judge <pjudge@bettergov.org>
+ */
+
+ body { /*max-width:  275px;*/ }
+
+ #calculator {
+   font-size: 15px;
+ }
+
+ #calculator label { padding-right: 10px; }
+
+ #calculator input { padding: 2px 5px; border-width: 0 0 2px; }
+
+ #from, #to {
+   display: inline-block;
+   margin-right: 20px;
+ }
+
+ .btn { display: block; margin: 0 auto; }
+
+ input { width: 250px; }
+
+ table {
+   margin-top: 30px;
+ }
+
+ /*body {
+   width: 700px;
+   max-width: 100%;
+ }*/
+
+ th span {
+   display: block;
+ }
+
+span.detail {
+   color: gray;
+   font-weight: normal;
+ }
+
+ span.detail::before {
+   content: "\A";
+ }
+
+ td[data-title~="Proposed"] {
+   font-weight: bold;
+ }
+
+[data-title*="Change"] {
+   text-align: left;
+}
+
+td[data-title*="Change"] {
+  color: red;
+}
+
+@media screen and (min-width: 575px) {
+  td[data-title*="Change"] {
+    font-weight: normal;
+  }
+  span.percent {
+    padding-left: 5px;
+  }
+}
+
+ table th[data-title]:before,
+ table td[data-title]:before {
+    color: black;
+ }
+
+
+
+ /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

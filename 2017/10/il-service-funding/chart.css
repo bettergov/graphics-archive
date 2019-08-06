@@ -1,0 +1,123 @@
+.x .domain {
+  display: none;
+}
+
+.line {
+  /*stroke: lightslategray;*/
+  stroke-opacity: .5;
+  stroke-width: 1.5;
+}
+
+.line[marker-start] {
+  stroke: none;
+  stroke-width: 8;
+  opacity: 1;
+}
+
+[data-reduction] path {
+  /*stroke: red;*/
+  stroke-width: 3;
+  stroke-opacity: 1;
+}
+
+.program text {
+  display: none;
+}
+
+[data-reduction] text {
+  display: block;
+  /*font-weight: 700 !important;*/
+}
+
+/*[data-reduction] text::after {
+  content: attr(data-reduction);
+}*/
+
+/*[data-eliminated] {
+  display: none;
+}*/
+
+svg:not(:first-of-type):not(:last-of-type) .x.axis text {
+  display: none;
+}
+
+svg:not(:first-of-type) .y.axis.left text,
+svg:not(:first-of-type) .y.axis.left .tick,
+svg:not(:first-of-type) .y.axis.left .domain {
+  display: none;
+}
+
+.program:not([data-reduction]) {
+  display: none;
+  stroke-width: 0;
+  stroke: transparent;
+}
+
+[class*="bga-g-"] {
+  width: 350px;
+}
+
+#g-illinois-service-funding--fy18-_1_svg-box .g-artboard {
+  margin:0 auto;
+}
+#g-illinois-service-funding--fy18-_1_svg-box .g-artboard p {
+  margin:0;
+}
+.g-aiAbs {
+  position:absolute;
+}
+.g-aiImg {
+  display:block;
+  width:100% !important;
+}
+.g-aiPointText p { white-space: nowrap; }
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 {
+  position:relative;
+  overflow:hidden;
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 p {
+  font-weight:400;
+  font-size:11px;
+  line-height:14px;
+  filter:alpha(opacity=100);
+  -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity:1;
+  letter-spacing:0em;
+  text-align:left;
+  color:rgb(85,85,85);
+  text-transform:none;
+  padding-bottom:0;
+  padding-top:0;
+  mix-blend-mode:normal;
+  font-style:normal;
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 .g-pstyle0 {
+  font-weight:500;
+  font-size:10px;
+  line-height:12px;
+  color:rgb(0,0,0);
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 .g-pstyle1 {
+  color:rgb(218,178,178);
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 .g-pstyle2 {
+  color:rgb(227,135,135);
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 .g-pstyle3 {
+  color:rgb(221,163,163);
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 .g-pstyle4 {
+  color:rgb(227,137,137);
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 .g-pstyle5 {
+  color:rgb(231,116,116);
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 .g-pstyle6 {
+  color:rgb(216,186,186);
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 .g-pstyle7 {
+  color:rgb(219,172,172);
+}
+#g-illinois-service-funding--fy18-_1_svg-Artboard_1 .g-pstyle8 {
+  color:rgb(240,72,72);
+}

@@ -1,0 +1,46 @@
+@import "./lib/base";
+
+@accent: lighten(rgb(7, 201, 255), 20%);
+
+body {
+  background: lighten(@accent, 27%);
+  border: solid @accent 5px;
+  padding: 1rem;
+}
+
+a {
+  font-weight: bold;
+}
+
+h2 {
+  color: @grey2;
+}
+
+ol {
+  padding-left: 1em;
+
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+h1 {
+  .sans-serif();
+  color: @grey1;
+  font-weight: bold;
+  line-height: 1.2;
+  // padding: 0.5rem;
+  // text-align: center;
+}
+
+h1 span {
+  .sans-serif();
+  // font-size: 1.5rem;
+  font-weight: bold;
+  // background-color: @accent;
+  box-decoration-break: clone;
+  // font-family: @sans;
+  -webkit-box-decoration-break: clone;
+  line-height: 1.2;
+  // padding: 0.5rem;
+}

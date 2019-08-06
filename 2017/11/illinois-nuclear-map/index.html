@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title></title>
+  <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding :0;
+    }
+    .map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+<div id='map-one' class='map'> </div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiYmdhLXBqdWRnZSIsImEiOiJjamEwZTZ5amYxcTBzMzNwb3d2MGkwb2U2In0.qQkt0JT17QbwQmC9LINEcA';
+var mapOne = L.mapbox.map('map-one', 'mapbox.light') // MAP STYLE: https://www.mapbox.com/api-documentation/#maps
+  .setView([42.5, -87], 6);
+var myLayer = L.mapbox.featureLayer().addTo(mapOne);
+
+var geojson = [
+  {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-86.31,42.32]
+    },
+    properties: {
+      title: "Palisades Nuclear Generating Station",
+      description: "Near South Haven, MI. Licensed since 02/21/71.",
+      icon: {
+        iconUrl: 'nukes_power_icon.png',
+        iconSize: [40,40], // size of the icon
+        iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
+        popupAnchor: [0, -20], // point from which the popup should open relative to the iconAnchor
+        className: 'dot'
+      }
+    }
+  }
+];
+myLayer.on('layeradd', function(e) {
+  var marker = e.layer,
+    feature = marker.feature;
+  marker.setIcon(L.icon(feature.properties.icon));
+});
+myLayer.setGeoJSON(geojson);
+mapOne.scrollWheelZoom.disable();
+</script>
+</body>
+</html>
+

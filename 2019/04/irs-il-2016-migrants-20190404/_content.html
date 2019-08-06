@@ -1,0 +1,37 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.markdown().render(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic-container">
+  <div class="graphic bar-chart inflow">
+  </div>
+
+  <div class="graphic bar-chart outflow">
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p><strong>Source:</strong> <%= t.markdown().renderInline(COPY.labels.source) %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p><strong>Credit:</strong> <%= t.markdown().renderInline(COPY.labels.credit) %></p>
+  <% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+  var PROPS = <%= JSON.stringify(COPY.props) %>;
+</script>

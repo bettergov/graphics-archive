@@ -1,8 +1,0 @@
-data = [{"display": "Arts", "file": "aa"}, 
-  {"display": "General Studies", "file": "ags"}, 
-  {"display": "Applied Science", "file": "aaps"},
-  {"display": "Science", "file": "as"}, 
-  //{"display": "Arts and Science", "file": "aas"}, 
-  //{"display": "Arts in Teaching", "file": "aat"}, 
-  {"display": "Engineering Science", "file": "aes"}, ]
-  //{"display": "Fine Arts", "file": "afa"}, ]

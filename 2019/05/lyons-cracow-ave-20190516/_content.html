@@ -1,0 +1,38 @@
+<h2 class="subhed">In Lyons, Mayor Chris Getty’s unusual house purchase raises questions of cozy deals with political supporters.</h2>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+  <figure>
+    <div class="thumbnail">
+      <img src="lyons-cracow-ave.jpg" alt="Chris Getty's home">
+    </div>
+    <figcaption>
+      <h2 class="address">Mayor Chris Getty's house on Cracow Avenue</h2>
+      <ul>
+        <li><div class="date">April 2014</div>Lyons purchases the property for <strong>$40,900</strong> after demolishing a home on the site.</li>
+        <li class="contribution"><div class="date">Nov. 2014 – Aug. 2015</div>Skyway Homes contributes <strong>$3,000</strong> to Getty’s campaign fund.</li>
+        <li><div class="date">Oct. 2015</div>Lyons sells the property to Skyway Homes for <strong>$27,500</strong> after Skyway is the only bidder. The village takes a loss of more than <strong>$13,000</strong>.</li>
+        <li class="contribution"><div class="date">Jan. 2016</div>Skyway Homes contributes <strong>$5,000</strong> to Getty's campaign fund.</li>
+        <li><div class="date">June 2016</div>Skyway Homes builds a new home and sells it to Lyons Mayor Chris Getty and his wife for <strong>$291,500</strong> without listing it on the market.</li>
+        <li class="contribution"><div class="date">July 2016 – Feb. 2019</div>Skyway Homes and affiliate M &amp; F Masonry contribute <strong>$18,000</strong> to Getty’s campaign fund.</li>
+
+      </ul>
+    </figcaption>
+  </figure>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p><strong>Source:</strong> <%= t.markdown().renderInline(COPY.labels.source) %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p><strong>Credit:</strong> <%= t.markdown().renderInline(COPY.labels.credit) %></p>
+  <% } %>
+</div>

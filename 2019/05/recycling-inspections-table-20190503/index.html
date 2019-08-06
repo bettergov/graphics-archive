@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%= slug %></title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noindex" />
+    <base target="_blank">
+    <link rel="stylesheet" href="./graphic.css">
+    <script>window.GOOGLE_ANALYTICS_ID = "<%= config.analyticsID %>";</script>
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+			  crossorigin="anonymous"></script>
+    <script src="https://pym.nprapps.org/pym.v1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+</head>
+<body>
+
+    <%= await t.include("_content.html") %>
+
+    <script src="./graphic.js"></script>
+
+    <script>
+    $(document).ready(function() {
+      var pymChild = new pym.Child();
+
+      $("#chart table")
+        .DataTable({ 
+          responsive: true,
+          columnDefs: [{ 
+            targets: '_all',
+            defaultContent: 'none'
+          }]
+        })
+        .on("draw.dt", function() { setTimeout(pymChild.sendHeight, 1) });
+
+      $('td').on('click', function() { setTimeout(pymChild.sendHeight, 1) });
+
+      pymChild.sendHeight();
+    });
+    </script>
+</body>
+</html>

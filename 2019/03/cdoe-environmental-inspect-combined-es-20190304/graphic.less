@@ -1,0 +1,108 @@
+@import "./lib/base";
+
+.labels li span,
+.axis .tick text {
+  font-variant-numeric: tabular-nums;
+}
+
+#bar-chart {
+  .labels li span {
+    display: none;
+  }
+
+  .labels .label-2010,
+  .labels .label-2012,
+  .labels .label-2019 {
+    span {
+      display: table-cell;
+    }
+  }
+}
+
+#column-chart {
+  height: auto;
+
+  .annotation-group {
+    color: #666;
+    font-size: 12px;
+  }
+
+  .annotation.show-bg {
+    .annotation-note-bg {
+      fill-opacity: 1;
+    }
+  }
+}
+
+.graphic {
+  // position: static;
+  display: block;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.graphic-title h2 {
+  margin-top: 0;
+}
+
+.graphic-container {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.hide-mobile {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
+.connector-end.connector-dot {
+  stroke: white;
+  stroke-width: 1.5px;
+}
+
+@media @screen-medium-above {
+  .hide-mobile {
+    display: unset;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  .graphic-container {
+    flex-direction: row;
+  }
+
+  @bar-chart-width: 225px;
+
+  #bar-chart {
+    flex-shrink: 0;
+    width: @bar-chart-width;
+  }
+
+  #column-chart {
+    max-width: 650px;
+    width: calc(100% - @bar-chart-width);
+
+    .graphic-title {
+      position: absolute;
+      right: 5px;
+      top: 0;
+    }
+
+    .graphic-wrapper {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}

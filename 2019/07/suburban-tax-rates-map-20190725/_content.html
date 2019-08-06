@@ -1,0 +1,25 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.markdown().render(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+  <figure class="iframe" style="margin-left: 0; margin-right: 0;"><iframe allowfullscreen="allowfullscreen" scrolling="no" src="https://crain-platform-ccb-assets.s3.amazonaws.com/assets/interactive/theforum/housing/bga-suburbs/cook-towns-tax-rate5.html" style="width: 100%; height: 500px; border: none; overflow: hidden;"></iframe></figure>
+</div>
+
+<div class="footer">
+  <% if (COPY.labels.footnote) { %>
+  <p><strong>Note:</strong> <%= t.markdown().renderInline(COPY.labels.footnote) %></p>
+  <% } %>
+
+  <% if (COPY.labels.source) { %>
+  <p><strong>Source:</strong> <%= t.markdown().renderInline(COPY.labels.source) %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p><strong>Credit:</strong> <%= t.markdown().renderInline(COPY.labels.credit) %></p>
+  <% } %>
+</div>

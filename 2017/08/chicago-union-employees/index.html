@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Employees by union</title>
+  <meta name="description" content="Employees by union">
+  <meta name="author" content="Better Government Association">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Load fonts -->
+	<script src="https://use.typekit.net/mqd7hhp.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <!-- Load stylesheets -->
+  <link rel="stylesheet" href="resources/css/layout.css"></style>
+  <link rel="stylesheet" href="resources/css/tables.css"></style>
+</head>
+
+<body>
+  <div class="bga-g-before">
+  	<div class="headline">Employees by union</div>
+  </div>
+
+  <div class="bga-g-main">
+    <img src="union-employees.png" />
+  </div>
+
+  <div class="bga-g-after">
+    <div class="source">Data: <a href="http://chicago.github.io/annual-financial-analysis/Expenditure-History/Workforce/#union-workforce" target="_blank">Annual financial analysis, City of Chicago</a></div>
+    <div class="credit">Credit: Better Government Association</div>
+  </div>
+
+  <!-- Load as Pym.js child -->
+	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+	<script type="text/javascript">
+		var pymChild = new pym.Child();
+	</script>
+	<script type="text/javascript">
+		window.onload = function(){
+			pymChild.sendHeight();
+		}
+	</script>
+
+</body>
+
+</html>
