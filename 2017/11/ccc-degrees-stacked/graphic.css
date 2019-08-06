@@ -1,0 +1,311 @@
+@import url("https://use.typekit.net/wjf8iou.css");
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  -webkit-text-size-adjust: none;
+  font-size: 12px;
+}
+body {
+  margin: 0;
+  padding: 1rem 0;
+  font: 1rem / 1.4 acumin-pro, Helvetica, Arial, sans-serif;
+  color: hsl(0, 0%, 48%);
+  touch-action: manipulation;
+}
+h1 {
+  font-family: acumin-pro-condensed, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  color: hsl(0, 0%, 29%);
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+}
+h2 {
+  font-weight: normal;
+  color: hsl(0, 0%, 48%);
+  font-size: 1.25rem;
+  margin: 1.5rem 0;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.footnotes {
+  margin-bottom: 1.5rem;
+}
+.footnotes h4 {
+  margin: 0;
+  color: hsl(0, 0%, 29%);
+  font-size: 1rem;
+}
+.footnotes p,
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: hsl(0, 0%, 48%);
+}
+.footer p strong,
+.footnotes p strong {
+  color: hsl(0, 0%, 29%);
+}
+a,
+a:link,
+a:visited {
+  color: #4774cc;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+.graphic-wrapper {
+  position: relative;
+}
+.graphic {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.graphic::after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+.graphic img {
+  max-width: 100%;
+  height: auto;
+}
+.key {
+  margin: -0.5rem 0 2.5rem 0;
+  padding: 0;
+  list-style-type: none;
+}
+.key .key-item {
+  display: inline-block;
+  margin: 0 1.5rem 0 0;
+  padding: 0;
+  line-height: 15px;
+}
+.key .key-item b {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 0.5rem;
+  float: left;
+}
+.key .key-item label {
+  white-space: nowrap;
+  font-size: 1rem;
+  color: hsl(0, 0%, 48%);
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+svg {
+  overflow: hidden;
+}
+.axis {
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  fill: hsl(0, 0%, 71%);
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: hsl(0, 0%, 86%);
+  shape-rendering: crispEdges;
+}
+.axis.y path {
+  display: none;
+}
+.axis.y .tick line {
+  display: none;
+}
+.axis.x .domain {
+  display: none;
+}
+.grid path {
+  display: none;
+}
+.grid .tick {
+  stroke: hsl(0, 0%, 92%);
+  color: hsl(0, 0%, 92%);
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+.grid.y g:first-child line {
+  display: none;
+}
+.zero-line {
+  stroke: hsl(0, 0%, 48%);
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+line,
+rect {
+  shape-rendering: crispEdges;
+}
+.bars {
+  fill: #17807E;
+}
+.labels {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: none;
+}
+.labels li {
+  position: absolute;
+  text-align: right;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: hsl(0, 0%, 48%);
+  display: table;
+  -webkit-font-smoothing: antialiased;
+}
+.labels li span {
+  display: table-cell;
+  vertical-align: middle;
+}
+.value text {
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+.value text.in {
+  fill: hsl(0, 0%, 92%);
+}
+.value text.out {
+  fill: hsl(0, 0%, 71%);
+}
+.annotation-group {
+  fill: hsl(0, 0%, 71%);
+  font-size: 1rem;
+}
+img:not([alt]) {
+  outline: 3px solid red;
+}
+.hidden {
+  display: none;
+}
+.graphic::after {
+  display: none;
+}
+#graphic-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 0;
+}
+.area-chart-container {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.area-chart-title {
+  font-weight: bold;
+  font-size: 1.4rem;
+  font-family: acumin-pro-condensed, sans-serif;
+}
+.area-chart {
+  width: 100%;
+  margin-top: auto;
+  position: relative;
+  top: -1.5rem;
+}
+.area-chart-title,
+.area-chart-description {
+  margin-left: calc(40px - 1.5rem);
+  margin-right: calc(96px - 1.5rem);
+  text-align: center;
+}
+.area-chart-description {
+  min-height: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+}
+.area path {
+  fill-opacity: 0.7;
+  stroke: white;
+  stroke-width: 1.5px;
+  stroke-opacity: 0.7;
+}
+.area.general-studies path {
+  fill: #d94538;
+  fill-opacity: 1;
+  stroke-width: 2px;
+}
+.area.general-studies text {
+  font-weight: bold;
+}
+.y.axis .tick,
+.x.axis .tick text {
+  display: none;
+}
+@media (min-width: 240px) and (max-width: 479px) {
+  .area-chart-container:nth-child(1n + 1) .y.axis .tick,
+  .area-chart-container:nth-child(1n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 480px) and (max-width: 719px) {
+  .area-chart-container:nth-child(2n + 1) .y.axis .tick,
+  .area-chart-container:nth-child(2n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 720px) and (max-width: 959px) {
+  .area-chart-container:nth-child(3n + 1) .y.axis .tick,
+  .area-chart-container:nth-child(3n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 960px) and (max-width: 1199px) {
+  .area-chart-container:nth-child(4n + 1) .y.axis .tick,
+  .area-chart-container:nth-child(4n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .area-chart-container:nth-child(5n + 1) .y.axis .tick,
+  .area-chart-container:nth-child(5n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 1440px) and (max-width: 1679px) {
+  .area-chart-container:nth-child(6n + 1) .y.axis .tick,
+  .area-chart-container:nth-child(6n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 1680px) and (max-width: 1919px) {
+  .area-chart-container:nth-child(7n + 1) .y.axis .tick,
+  .area-chart-container:nth-child(7n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+.annotation-subject path {
+  fill-opacity: 1;
+  stroke: transparent;
+}
+.annotation-note-label {
+  font-weight: bold;
+}
+.area-chart-container:not(:first-child) .annotation-note {
+  opacity: 0;
+}
+.highlight-ags {
+  color: #d94538;
+  font-weight: bold;
+}
+.annotation-note {
+  transform: translateY(70px) rotate(270deg);
+}
+.highlight-reinvention {
+  font-weight: bold;
+}

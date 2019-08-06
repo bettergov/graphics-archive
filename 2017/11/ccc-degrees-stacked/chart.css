@@ -1,0 +1,67 @@
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.degree { 
+    fill:#bbb;
+    fill-opacity: .5;
+    stroke: white;
+    stroke-width: 1.5;
+    stroke-opacity: .8;
+}
+
+#ags { 
+    fill: #D8241F;
+    fill-opacity: 1;
+}
+
+.domain { display: none; }
+
+/*.axis.x .domain { display: block; }*/
+
+.axis.x .tick line {
+  display: none;
+}
+
+.axis.y .tick line {
+  stroke: lightgray;
+  stroke-dasharray: 5, 5;
+}
+
+.axis.y .tick:first-of-type line {
+  display: none;
+}
+
+.divider .tick line {
+  stroke: white;
+  stroke-width: 0;
+}
+
+svg .axis.x,
+svg .axis text,
+svg .divider text {
+  display: none;
+}
+
+svg:first-of-type {
+  visibility: hidden;
+}
+
+svg:nth-of-type(2) .axis.x,
+svg:nth-of-type(2) .axis text,
+svg:nth-of-type(2) .divider text
+{
+  display: block;
+}
+
+text {
+  font-family: proxima-nova, helvetica, arial, sans-serif !important;
+}

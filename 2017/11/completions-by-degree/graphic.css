@@ -1,0 +1,305 @@
+@import url("https://use.typekit.net/wjf8iou.css");
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  -webkit-text-size-adjust: none;
+  font-size: 12px;
+}
+body {
+  margin: 0;
+  padding: 1rem 0;
+  font: 1rem / 1.4 acumin-pro, Helvetica, Arial, sans-serif;
+  color: hsl(0, 0%, 48%);
+  touch-action: manipulation;
+}
+h1 {
+  font-family: acumin-pro-condensed, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  color: hsl(0, 0%, 29%);
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+}
+h2 {
+  font-weight: normal;
+  color: hsl(0, 0%, 48%);
+  font-size: 1.25rem;
+  margin: 1.5rem 0;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.footnotes {
+  margin-bottom: 1.5rem;
+}
+.footnotes h4 {
+  margin: 0;
+  color: hsl(0, 0%, 29%);
+  font-size: 1rem;
+}
+.footnotes p,
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: hsl(0, 0%, 48%);
+}
+.footer p strong,
+.footnotes p strong {
+  color: hsl(0, 0%, 29%);
+}
+a,
+a:link,
+a:visited {
+  color: #4774cc;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+.graphic-wrapper {
+  position: relative;
+}
+.graphic {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.graphic::after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+.graphic img {
+  max-width: 100%;
+  height: auto;
+}
+.key {
+  margin: -0.5rem 0 2.5rem 0;
+  padding: 0;
+  list-style-type: none;
+}
+.key .key-item {
+  display: inline-block;
+  margin: 0 1.5rem 0 0;
+  padding: 0;
+  line-height: 15px;
+}
+.key .key-item b {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 0.5rem;
+  float: left;
+}
+.key .key-item label {
+  white-space: nowrap;
+  font-size: 1rem;
+  color: hsl(0, 0%, 48%);
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+svg {
+  overflow: hidden;
+}
+.axis {
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  fill: hsl(0, 0%, 71%);
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: hsl(0, 0%, 86%);
+  shape-rendering: crispEdges;
+}
+.axis.y path {
+  display: none;
+}
+.axis.y .tick line {
+  display: none;
+}
+.axis.x .domain {
+  display: none;
+}
+.grid path {
+  display: none;
+}
+.grid .tick {
+  stroke: hsl(0, 0%, 92%);
+  color: hsl(0, 0%, 92%);
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+.grid.y g:first-child line {
+  display: none;
+}
+.zero-line {
+  stroke: hsl(0, 0%, 48%);
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+line,
+rect {
+  shape-rendering: crispEdges;
+}
+.bars {
+  fill: #17807E;
+}
+.labels {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: none;
+}
+.labels li {
+  position: absolute;
+  text-align: right;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: hsl(0, 0%, 48%);
+  display: table;
+  -webkit-font-smoothing: antialiased;
+}
+.labels li span {
+  display: table-cell;
+  vertical-align: middle;
+}
+.value text {
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+.value text.in {
+  fill: hsl(0, 0%, 92%);
+}
+.value text.out {
+  fill: hsl(0, 0%, 71%);
+}
+.annotation-group {
+  fill: hsl(0, 0%, 71%);
+  font-size: 1rem;
+}
+img:not([alt]) {
+  outline: 3px solid red;
+}
+.hidden {
+  display: none;
+}
+.graphic::after {
+  display: none;
+}
+#graphic-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 0;
+}
+.line-chart-container {
+  flex: 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.line-chart-title {
+  font-weight: bold;
+  font-size: 1.4rem;
+  font-family: acumin-pro-condensed, sans-serif;
+}
+.line-chart {
+  width: 100%;
+  margin-top: auto;
+  position: relative;
+}
+.line-chart-title,
+.line-chart-description {
+  margin-left: calc(40px - 1.5rem);
+  margin-right: calc(20px - 1.5rem);
+  text-align: center;
+}
+.line-chart-description {
+  min-height: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+}
+.line path {
+  stroke-width: 2.5px;
+}
+.line.general-studies path {
+  fill: #d94538;
+  fill-opacity: 1;
+  stroke-width: 2px;
+}
+.line.general-studies text {
+  font-weight: bold;
+}
+.y.axis .tick,
+.x.axis .tick text {
+  display: none;
+}
+@media (min-width: 150px) and (max-width: 299px) {
+  .line-chart-container:nth-child(1n + 1) .y.axis .tick,
+  .line-chart-container:nth-child(1n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 300px) and (max-width: 449px) {
+  .line-chart-container:nth-child(2n + 1) .y.axis .tick,
+  .line-chart-container:nth-child(2n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 450px) and (max-width: 599px) {
+  .line-chart-container:nth-child(3n + 1) .y.axis .tick,
+  .line-chart-container:nth-child(3n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 600px) and (max-width: 749px) {
+  .line-chart-container:nth-child(4n + 1) .y.axis .tick,
+  .line-chart-container:nth-child(4n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+@media (min-width: 750px) and (max-width: 899px) {
+  .line-chart-container:nth-child(5n + 1) .y.axis .tick,
+  .line-chart-container:nth-child(5n + 1) .x.axis .tick text {
+    display: block;
+  }
+}
+.line-chart-container:first-child .y.axis .tick,
+.line-chart-container:first-child .x.axis .tick text {
+  display: block;
+}
+.annotation-subject path {
+  fill-opacity: 1;
+  stroke: transparent;
+}
+.annotation-note-label {
+  font-weight: bold;
+}
+.line-chart-container:not(:first-child) .annotation-note {
+  opacity: 0;
+}
+.highlight-ags {
+  color: #d94538;
+  font-weight: bold;
+}
+.annotation-note {
+  transform: translateY(70px) rotate(270deg);
+}
+.highlight-reinvention {
+  font-weight: bold;
+}
+.y.axis .tick:last-child {
+  transform: translateX(1.55ch);
+}
+.line-chart-container {
+  margin-bottom: 2rem;
+}

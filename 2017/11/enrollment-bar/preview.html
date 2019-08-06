@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>enrollment-bar</title>
+  <link rel="shortcut icon" href="https://media.npr.org/favicon.ico">
+  
+  <style>
+  :root {
+  --off-black: #333;
+  --lightest-gray: #ebebeb;
+  --light-gray: #ddd;
+  --middle-gray: #888;
+  --dark-gray: #666;
+  --off-white: #f7f7f7;
+  --blue: #4774CC;
+  --local: green;
+  --staging: orange;
+  --production: red;
+  --error: darkred;
+  --dashes: 2px dashed #ddd;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: var(--off-black);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  height: 0;
+  width: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+a, a.visited {
+  color: var(--blue);
+}
+
+hr {
+  margin: 8px auto;
+  max-width: 50%;
+  border-top: 4px dotted var(--middle-gray);
+}
+
+button, .button {
+  position: relative;
+  padding: 2px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--blue);
+  font-weight: bold;
+  transition: all .1s linear;
+  background: white;
+  text-decoration: none;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: inherit;
+}
+
+button:hover, button:focus,
+.button:hover, .button:focus {
+  outline: none;
+  border: 1px solid var(--middle-gray);
+}
+
+button[aria-pressed="true"] {
+  background: var(--blue);
+  color: var(--off-white);
+}
+
+.inline-svg {
+  fill: currentColor;
+}
+
+button .tooltip,
+.button .tooltip {
+  opacity: 0;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: -4px;
+  background: white;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .1);
+  padding: 4px 8px;
+  pointer-events: none;
+  transition: opacity .1s .5s linear;
+  text-align: center;
+  color: var(--dark-gray);
+}
+
+button:hover .tooltip,
+button:focus .tooltip,
+.button:hover .tooltip,
+.button:focus .tooltip {
+  display: block;
+  opacity: 1;
+}
+
+input {
+  border: none;
+  border-radius: 3px;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 4px;
+}
+
+select {
+  padding: 4px;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--blue);
+  font-weight: bold;
+}
+
+/* components */
+
+.toolbar {
+  background: var(--lightest-gray);
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.toolbar h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  display: inline;
+}
+
+.toolbar .title {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .toolbar {
+    justify-content: flex-end;
+  }
+
+  .toolbar .title {
+    flex: 0 0 100%;
+    padding-bottom: 8px;
+  }
+}
+
+.toolbar button,
+.toolbar .button,
+.toolbar select {
+  margin: 0 4px 0;
+  font-size: 12px;
+}
+
+.toolbar input {
+  display: block;
+  font-size: 16px;
+  border: 0;
+  background: var(--off-white);
+  padding: 0 10px;
+}
+
+.toolbar .spacer {
+  border-left: 1px solid var(--middle-gray);
+  margin: 0 8px;
+}
+
+@keyframes fade {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+.toast {
+  background: var(--dark-gray);
+  color: var(--off-white);
+  font-weight: bold;
+  font-size: 16px;
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+  padding: 16px 32px;
+  display: none;
+}
+
+.toast.show {
+  display: block;
+  animation: fade 400ms linear;
+}
+
+.toast[data-type="error"] {
+  background: var(--error);
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.shade {
+  text-align: right;
+  background: var(--dark-gray);
+  color: var(--off-white);
+  padding: 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 16px 8px rgba(0, 0, 0, .2);
+  display: none;
+  font-size: 16px;
+}
+
+.shade.show {
+  animation: slide-down 800ms;
+  display: block;
+}
+
+.shade form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.shade label {
+  font-size: 14px;
+  font-weight: normal;
+  margin-right: 0;
+  text-style: italic;
+}
+
+.shade label,
+.shade input,
+.shade select,
+.shade button {
+  margin: 0 8px;
+}
+
+.shade label + input[type="checkbox"] {
+  margin-left: 0;
+}
+
+/* home page */
+
+.root-list {
+  background: var(--off-white);
+}
+
+.root-list .graphics-list {
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.root-list li .contents {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0;
+  padding: 2px;
+  font-size: 18px;
+  border-bottom: 1px dashed var(--light-gray);
+}
+
+.root-list li.hide {
+  display: none;
+}
+
+.root-list a {
+  text-decoration: none;
+}
+
+.root-list .create.shade input[name="createSheet"]:checked + input[name="sheetID"] {
+  display: none;
+}
+
+/* preview page */
+
+.preview-page a.back {
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.preview-page .edit-sheet.button {
+  color: green;
+}
+
+.preview-page .prod-link.button {
+  color: red;
+}
+
+.preview-page .preview-container {
+  border: 2px dashed var(--light-gray);
+  margin: 32px auto;
+  /* exception so we can add borders with impunity */
+  box-sizing: content-box;
+  width: 100%;
+}
+
+.preview-page .preview-container[data-width="sidebar"] { width: 180px }
+.preview-page .preview-container[data-width="mobile"] { width: 360px }
+.preview-page .preview-container[data-width="desktop"] { width: 730px }
+
+.preview-page .metadata {
+  max-width: 700px;
+  margin: auto;
+  padding: 16px;
+}
+
+.preview-page .copy-on-click {
+  border: none;
+  padding: 16px 8px;
+  background: var(--light-gray);
+  font-family: monospace;
+  display: block;
+  width: 100%;
+}
+
+.preview-page.deployed .hide-deployed {
+  display: none;
+}
+
+.preview-page .direct-link {
+  background: var(--off-white);
+  display: block;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.preview-page .direct-link a {
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.preview-page .deploy-graphic {
+  color: var(--production);
+}
+  </style>
+  
+</head>
+<body class="preview-page deployed">
+  <header class="toolbar">
+    <div class="title">
+      <a class="back hide-deployed" aria-label="Back to graphic index" href="/">&laquo;</a>
+      <h1>enrollment-bar</h1>
+    </div>
+
+    <select class="breakpoint" aria-label="Preview width">
+      <option value="sidebar">Sidebar (180px)</option>
+      <option value="mobile" selected>Mobile (360px)</option>
+      <option value="desktop">Desktop (730px)</option>
+      <option value="fluid">Fluid</option>
+    </select>
+
+    
+    <a target="_blank" class="edit-sheet button" href="https://docs.google.com/spreadsheets/d/1Wti6Pd7YXizK5Q7seR6Nockp6s_nHW1RyPtEmjXHwXo/edit#gid=0">
+      <div aria-hidden="true" class="inline-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-5 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm4 8h-8v-1c0-1.33 2.67-2 4-2s4 .67 4 2v1z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+      </div>
+      <span class="tooltip">Sheet</span>
+    </a>
+    
+
+    <button class="refresh-sheet hide-deployed">
+      <div aria-hidden="true" class="inline-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" /><path d="M0 0h24v24H0z" fill="none"/></svg>
+      </div>
+      <span class="tooltip">Refresh sheet</span>
+    </button>
+
+    <a target="_blank" class="prod-link button hide-deployed"
+      href="https://graphics.bettergov.org/dailygraphics/enrollment-bar/preview.html">
+      <div aria-hidden-="true" class="inline-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/></svg>
+      </div>
+      <span class="tooltip">View in production</span>
+    </a>
+
+    <span class="spacer hide-deployed"></span>
+
+    <button class="show-duplicate hide-deployed" aria-pressed="false">
+      <div aria-hidden="true" class="inline-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M20 6h-8l-2-2H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-1 8h-3v3h-2v-3h-3v-2h3V9h2v3h3v2z"/></svg>
+      </div>
+      <span class="tooltip">Duplicate this</span>
+    </button>
+
+    <button class="deploy-graphic hide-deployed">
+      <div aria-hidden="true" class="inline-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      </div>
+      <span class="tooltip">Deploy to production</span>
+    </button>
+
+  </header>
+
+  <div class="copy shade">
+    <form method="POST" action="/graphic/enrollment-bar/duplicate">
+      <label for="slug">Duplicate as:</label>
+      <input id="slug" name="slug" required>
+      <button class="submit">Duplicate</button>
+    </form>
+  </div>
+
+  <div class="preview-container" data-width="mobile">
+    <div data-pym-loader data-child-src="./index.html?" id="preview">Loading...</div>
+  </div>
+
+  <hr>
+
+  <section class="metadata">
+
+    <h2>Embed code</h2>
+    <textarea
+      class="embed-code copy-on-click"
+      readonly="readonly"
+      rows="4"
+      cols="80"
+      aria-label="Embed code"
+    >&lt;p data-pym-loader data-child-src=&quot;https://graphics.bettergov.org/dailygraphics/enrollment-bar/&quot; id=&quot;responsive-embed-enrollment-bar&quot;&gt; Loading... &lt;/p&gt; &lt;script src=&quot;https://pym.nprapps.org/npr-pym-loader.v2.min.js&quot;&gt;&lt;/script&gt;</textarea>
+
+    
+    <h2>Copyedit e-mail</h2>
+
+    <p>
+      Note: if you have a <var>metadata</var> tab in your sheets for this graphic, it will be used to fill in the blanks below.
+
+    <textarea
+      class="copyedit-email copy-on-click"
+      readonly="readonly"
+      rows="34"
+      aria-label="Copyedit e-mail"
+    >This graphic accompanies __AUTHOR__'s story, running __TIME__, about __SUBJECT__.
+
+Story URL (not yet published): https://www.npr.org/templates/story/story.php?storyId=__SEAMUS_ID__&live=1
+
+Expected run date: __TIME__
+
+Primary graphics contact: Patrick Judge
+Primary editorial contact: __EDITORIAL_CONTACT__
+
+---- GRAPHIC enrollment-bar ----
+
+Spreadsheet URL: https://docs.google.com/spreadsheets/d/1Wti6Pd7YXizK5Q7seR6Nockp6s_nHW1RyPtEmjXHwXo/edit#gid=0
+Production URL: https://graphics.bettergov.org/dailygraphics/enrollment-bar/preview.html
+
+headline: undefined
+
+subhed: As **enrollment** at City Colleges has waned…
+
+screenreader: 
+
+footnote: undefined
+
+source: undefined
+
+credit: undefined
+
+</textarea>
+    
+
+    <h2>Direct link</h2>
+
+    Underneath the graphic embed, in the text of the story, add a prompt with a direct link to the graphic (without this preview frame, embed code, etc.). You can copy/paste the text below directly into Seamus (new editor) and the formatting should be preserved.
+
+    <blockquote class="direct-link">
+      <p><em><strong> <a
+  href="https://graphics.bettergov.org/dailygraphics/enrollment-bar?mode=childlink&utm_source=nprnews&utm_medium=app&utm_campaign=storyredirect">
+  Don't see the graphic above? Click here.
+</a></em></strong></p>
+    </blockquote>
+
+  </section>
+
+  
+  <script src="https://pym.nprapps.org/npr-pym-loader.v2.min.js"></script>
+  <script>
+// this is here so that it still works on deployed pages
+var preview = document.querySelector(".preview-container");
+var breakSelect = document.querySelector("select.breakpoint");
+
+breakSelect.addEventListener("change", function() {
+  var breakpoint = this.value;
+  preview.setAttribute("data-width", breakpoint);
+  window.location.hash = breakpoint;
+});
+
+if (window.location.hash) {
+  var w = window.location.hash.replace(/#/, "")
+  preview.setAttribute("data-width", w);
+  breakSelect.value = w;
+}
+
+  </script>
+</body>
+</html>

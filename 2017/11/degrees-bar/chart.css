@@ -1,0 +1,38 @@
+/*.axis.x path {
+  display: none;
+}*/
+
+.bar {
+  fill: steelblue;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis .domain {
+  display: none;
+}
+
+.y.axis .tick line {
+  stroke: lightgray;
+}
+
+.y.axis .tick:first-of-type line {
+  stroke: black;
+}
+
+.x.axis .tick:nth-of-type(2n) {
+  display: none;
+}
