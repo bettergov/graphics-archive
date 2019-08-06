@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "csv-to-markdown-table": "^1.0.1",
+    "fast-csv": "^3.4.0",
+    "json2csv": "^4.5.2",
     "mv": "^2.1.1"
   }
 }
