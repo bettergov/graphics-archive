@@ -38,7 +38,7 @@ stream
       { fields, quote: '' }
     );
     const md = csvToMarkdown(parsed, ',', true);
-    const mdPath = path.join(rootDir, 'contents.md');
+    const mdPath = path.join(rootDir, 'README.md');
 
     fs.writeFile(mdPath, md, err => {
       if (err) return console.error(err);
