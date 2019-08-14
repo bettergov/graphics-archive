@@ -25,7 +25,7 @@ targets.forEach(Dirent => {
     var oldPath = path.join(__dirname, name);
     var newPath = path.join(__dirname, year, month, name);
 
-    mv(oldPath, newPath, { mkdirp: true }, err => {
+    mv(oldPath, newPath, { mkdirp: true, clobber: false }, err => {
       console.error(err);
     });
   }
